@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Bemutatkozó oldalam - About</title>
+</head>
+
+<body>
+    <header>
+        <h1>Siegfried bemutatkozó oldala</h1>
+    </header>
+    <nav>
+        <span>
+            <a href="/html-feladatok-bemutatkozo/home.html">Home</a>
+            <a href="/html-feladatok-bemutatkozo/works.html">Works</a>
+        </span>
+        <span>
+            <a href="/html-feladatok-bemutatkozo/gallery.html">Gallery</a>
+            <a id="about" href="/html-feladatok-bemutatkozo/about.html">About</a>
+        </span>
+    </nav>
+    <main id="works">
+        <figure>
+            <img src="img/402px-Jean_de_Reszke_as_Siegfried_-_Félix_Nadar_(MetOpera_Database).jpg"
+                alt="Siegfried megfújja kürtjét">
+        </figure>
+        <section>
+            <article>
+                Nevem Siegfried, Siegmund és Sieglinde gyermeke. <br> Mime, egy undok törpe nevelt fel, azt hazudva,
+                hogy ő az apám (és anyám is egyben). <br>
+                Elvitt engem Fafner barlangjához, hogy megtanítsa nekem a félelmet. <br>
+                Azt remélte, általam megszerzi Fafnertól, a sárkánytól a Nibelung kincsét, de hála a madarak énekének,
+                átláttam mesterkedésén. <br>
+                Sajnos a félelmet nem sikerült elsajátítani, de a kincset megtartottam. <br>
+                Hobbijaim:
+                <ol>
+                    <li>Természetjárás</li>
+                    <li>Madarakkal csevegés</li>
+                    <li>Sárkányokkal vívás</li>
+                </ol>
+                Beszélt nyelvek:
+                <ul>
+                    <li>német</li>
+                    <li>a madarak nyelvét is értem</li>
+                    <li>illetve, mindig amilyen nyelven éneklik az operát 😉</li>
+                </ul>
+            </article>
+        </section>
+        <section>
+            <h3>Ha szívesen megtanítanál a félelemre, kérlek dobj egy üzenetet:</h3>
+            <form>
+                <label for="name">Név:</label><br>
+                <input type="text" name="name" id="name" minlength="5" required><br>
+                <label for="email">E-mail:</label><br>
+                <input type="email" name="email" id="email" required><br>
+                <label for="message">Üzenet:</label><br>
+                <textarea name="message" id="message" cols="30" rows="10" minlength="20"></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <button>
+            <a href="#">Vissza az oldal tetejére</a>
+        </button>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    margin: 15px;
+}
+
+table#prop td {
+    margin: 5px 5px;
+    border: solid 2px red;
+    padding: 10px 10px;
+    font-size: large;
+}
+
+@media only screen and (max-width:480px){
+    table#prop td:last-child {
+        display: block;
+    }
+}  /*nem működik, nem rakja új sorba  */
+
+
+figure.main {
+    display: inline-block;
+}
+
+#works img {
+    width: 300px;
+}
+
+#works figure, article, section {
+    display: inline-block;
+} 
+section#gallery img {
+    box-shadow: 5px 5px 20px #bb2030;
+}
+
+@media only screen and (max-width:480px) {
+    section#gallery img {
+        width: 80%;
+        margin: 10% 10%;
+    }
+}
+@media only screen and (min-width:480px) and (max-width:950px) {
+    section#gallery img {
+        width: 40%;
+        margin: 4% 4%;
+    }
+}
+@media only screen and (min-width: 950px){
+    section#gallery img {
+        width: 25%;
+        margin: 4% 4%;
+    }
+}
+
+body {
+    background-color: #ffffaa;
+}
+nav {
+    padding: 40px 5px;
+}
+nav a {
+    margin: 20px 20px;
+    border: solid 1px brown;
+    border-radius: 5px;
+    padding: 10px 7%;
+    font-weight: 700;
+    font-size: 1.8em;
+    box-shadow: 5px 5px 5px crimson;
+    background-color: #ffddaa;
+}
+
+@media only screen and (max-width:800px) {
+    nav span {
+        display: block;
+        margin: 40px 0px;
+    }
+}
+
+@media only screen and (max-width:420px) {
+    nav a {
+        display: block;
+        margin: 40px 0px;
+    }
+}
+
+@media only screen and (min-width:800px) and (max-width:1280px) {
+    nav a#about {
+        display: block;
+        margin: 40px 0px;
+    }
+}
+
+footer {
+    background-color: black;
+}
+
+footer button {
+    margin: 40px 0;
+    padding: 5px 5px;
+    position: relative;
+    left: 45%; 
+}
