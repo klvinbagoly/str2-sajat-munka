@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header--dark">
+        <h3 class="header__title">Admin Page</h3>
+        <i class="fa fa-bars" aria-hidden="true" id="menu__icon"></i>
+        <div class="header__user header__right">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <i class="fa fa-sort-desc" aria-hidden="true"></i>
+        </div>
+        <div class="header__search">
+            <form action="">
+                <input class="search__input header__right" type="search" name="search" id="search__input" placeholder="Search for...">
+                <button class="search__btn header__right">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+
+                </button>
+            </form>
+        </div>
+    </header>
+    <main class="main">
+        <aside class="aside">
+            <nav class="main__nav">
+                <ul class="nav__ul">
+                    <li class="nav__header">Core</li>
+                    <li class="nav__item nav__item--active"><i class="fa fa-tachometer" aria-hidden="true"></i>
+                        Dashboard</li>
+                    <li class="nav__header">Interface</li>
+                    <li class="nav__item"><i class="fa fa-columns" aria-hidden="true"></i>
+                        Layouts<i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </li>
+                    <li class="nav__item"><i class="fa fa-bookmark" aria-hidden="true"></i>
+                        Pages<i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </li>
+                    <li class="nav__header">Addons</li>
+                    <li class="nav__item"><i class="fa fa-area-chart" aria-hidden="true"></i>
+                        Charts</li>
+                    <li class="nav__item"><i class="fa fa-table" aria-hidden="true"></i>
+                        Tables</li>
+                </ul>
+            </nav>
+        </aside>
+        <section class="content">
+            <h1 class="main__title">Dashboard</h1>
+            <div class="main__breadcrumb">Dashboard</div>
+            <div class="main__cards">
+                <div class="main__card main__card--blue">
+                    <div class="card__top">Primary Card</div><hr>
+                    <div class="card__bottom">View Details<i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="main__card main__card--yellow">
+                    <div class="card__top">Warning Card</div><hr>
+                    <div class="card__bottom">View Details<i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="main__card main__card--green">
+                    <div class="card__top">Success Card</div><hr>
+                    <div class="card__bottom">View Details<i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="main__card main__card--red">
+                    <div class="card__top">Danger Card</div><hr>
+                    <div class="card__bottom">View Details<i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
