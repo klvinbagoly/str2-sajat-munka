@@ -7,6 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <title>Bemutatkozó oldalam - About</title>
+    <script>
+        function validateForm () {
+            let name = document.querySelector('input[name="name"]').value;
+            let email = document.querySelector('input[name="email"]').value;
+            let text = document.querySelector('textarea').value;
+            if (name.length < 5) {
+                alert("A név legalább 5 karakter legyen!");
+                return;
+            } else if (email.indexOf("@") <1 || email.indexOf(".") < email.indexOf("@")
+             || email.indexOf(".") == email.length - 1 || email.indexOf(' ') > -1
+             || email.indexOf(".") < 1){
+                alert("Hibás az e-mail formátuma!");
+                return;
+            } else if (text.length < 20) {
+                alert("Legalább 20 karakter legyen az üzenet!");
+                return;
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -59,7 +78,7 @@
                 <input type="email" name="email" id="email" required><br>
                 <label for="message">Üzenet:</label><br>
                 <textarea name="message" id="message" cols="30" rows="10" minlength="20"></textarea><br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" onclick="validateForm()">
             </form>
         </section>
     </main>
@@ -68,6 +87,7 @@
             <a href="#">Vissza az oldal tetejére</a>
         </button>
     </footer>
+   
 </body>
 
 </html>
