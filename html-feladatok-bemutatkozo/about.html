@@ -8,22 +8,32 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Bemutatkozó oldalam - About</title>
     <script>
-        function validateForm () {
+        function validateForm() {
             let name = document.querySelector('input[name="name"]').value;
-            let email = document.querySelector('input[name="email"]').value;
-            let text = document.querySelector('textarea').value;
             if (name.length < 5) {
                 alert("A név legalább 5 karakter legyen!");
                 return;
-            } else if (email.indexOf("@") <1 || email.indexOf(".") < email.indexOf("@")
-             || email.indexOf(".") == email.length - 1 || email.indexOf(' ') > -1
-             || email.indexOf(".") < 1){
-                alert("Hibás az e-mail formátuma!");
-                return;
-            } else if (text.length < 20) {
+            } else if (emailValidate()){
+                textValidate();
+            };
+        }
+        
+        function textValidate (){
+            let text = document.querySelector('textarea').value;
+            if (text.length < 20) {
                 alert("Legalább 20 karakter legyen az üzenet!");
                 return;
             }
+        }
+
+        function emailValidate() {
+            let email = document.querySelector('input[name="email"]').value;
+            if (email.indexOf("@") < 1 || email.indexOf(".") < email.indexOf("@")
+                || email.indexOf(".") == email.length - 1 || email.indexOf(' ') > -1
+                || email.indexOf(".") < 1) {
+                alert("Hibás az e-mail formátuma!");
+                return false;
+            } else return true;
         }
     </script>
 </head>
@@ -87,7 +97,7 @@
             <a href="#">Vissza az oldal tetejére</a>
         </button>
     </footer>
-   
+
 </body>
 
 </html>
