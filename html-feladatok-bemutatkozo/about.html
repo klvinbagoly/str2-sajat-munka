@@ -21,9 +21,10 @@
             } else if (emailValidate()){
                 if (textValidate()){
                     alert('Köszi!');
+                    document.querySelector('form').submit();
+            }
                 } 
             } 
-        }
         
         function textValidate (){
             let text = document.querySelector('textarea').value;
