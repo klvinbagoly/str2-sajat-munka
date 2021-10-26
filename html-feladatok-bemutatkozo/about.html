@@ -8,22 +8,30 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Bemutatkozó oldalam - About</title>
     <script>
+        function stopReload (){
+            document.querySelector('form').addEventListener('submit', function(ev){
+                ev.preventDefault();
+            })
+        }
         function validateForm() {
             let name = document.querySelector('input[name="name"]').value;
             if (name.length < 5) {
                 alert("A név legalább 5 karakter legyen!");
-                return;
+                stopReload();
             } else if (emailValidate()){
-                textValidate();
-            };
+                if (textValidate()){
+                    alert('Köszi!');
+                } 
+            } 
         }
         
         function textValidate (){
             let text = document.querySelector('textarea').value;
             if (text.length < 20) {
+                stopReload();
                 alert("Legalább 20 karakter legyen az üzenet!");
-                return;
-            }
+                return false;
+            } else return true;
         }
 
         function emailValidate() {
@@ -31,6 +39,7 @@
             if (email.indexOf("@") < 1 || email.indexOf(".") < email.indexOf("@")
                 || email.indexOf(".") == email.length - 1 || email.indexOf(' ') > -1
                 || email.indexOf(".") < 1) {
+                stopReload();    
                 alert("Hibás az e-mail formátuma!");
                 return false;
             } else return true;
@@ -81,7 +90,7 @@
         </section>
         <section>
             <h3>Ha szívesen megtanítanál a félelemre, kérlek dobj egy üzenetet:</h3>
-            <form>
+            <form > 
                 <label for="name">Név:</label><br>
                 <input type="text" name="name" id="name" minlength="5" required><br>
                 <label for="email">E-mail:</label><br>
