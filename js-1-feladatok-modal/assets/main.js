@@ -5,8 +5,8 @@ function openModal (){
     setTimeout(() =>
     document.body.addEventListener('click', closeModal), 1000
     )
-    modal.addEventListener('click', function(ev){
-        ev.stopPropagation()});
+    modal.addEventListener('click', ev =>
+        ev.stopPropagation());
 }
 
 // function stopClosing (ev){
