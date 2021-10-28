@@ -17,19 +17,21 @@
             let name = document.querySelector('input[name="name"]').value;
             if (name.length < 5) {
                 alert("A név legalább 5 karakter legyen!");
-                stopReload();
+                //stopReload();
+                return false;
             } else if (emailValidate()){
                 if (textValidate()){
                     alert('Köszi!');
-                    document.querySelector('form').submit();
+                    //document.querySelector('form').submit();
+                    return true;
             }
-                } 
+                } return false;
             } 
         
         function textValidate (){
             let text = document.querySelector('textarea').value;
             if (text.length < 20) {
-                stopReload();
+                //stopReload();
                 alert("Legalább 20 karakter legyen az üzenet!");
                 return false;
             } else return true;
@@ -40,7 +42,7 @@
             if (email.indexOf("@") < 1 || email.indexOf(".") < email.indexOf("@")
                 || email.indexOf(".") == email.length - 1 || email.indexOf(' ') > -1
                 || email.indexOf(".") < 1) {
-                stopReload();    
+                //stopReload();    
                 alert("Hibás az e-mail formátuma!");
                 return false;
             } else return true;
@@ -98,7 +100,7 @@
                 <input type="email" name="email" id="email" required><br>
                 <label for="message">Üzenet:</label><br>
                 <textarea name="message" id="message" cols="30" rows="10" minlength="20"></textarea><br>
-                <input type="submit" value="Submit" onclick="validateForm()">
+                <input type="submit" value="Submit" onclick="return validateForm()">
             </form>
         </section>
     </main>
