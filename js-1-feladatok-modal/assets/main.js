@@ -2,11 +2,16 @@ function openModal (){
     const modal = document.querySelector('.modal');
     modal.setAttribute('class','modal-visible');
     document.body.setAttribute('style', 'background-color: rgba(11, 11, 11, 0.8);');
-    setTimeout(() =>
-    document.body.addEventListener('click', closeModal), 1000
-    )
-    modal.addEventListener('click', ev =>
-        ev.stopPropagation());
+    // setTimeout(() =>
+    // document.body.addEventListener('click', closeModal), 1000
+    // )
+    // modal.addEventListener('click', ev =>
+    //     ev.stopPropagation()); HELYETT:
+    const container = document.querySelector('.container');
+    window.addEventListener('click', function(ev) {
+        if (ev.target == container ||ev.target == document.body ||ev.target == document.body.parentElement){
+            closeModal();
+        }})
 }
 
 // function stopClosing (ev){
