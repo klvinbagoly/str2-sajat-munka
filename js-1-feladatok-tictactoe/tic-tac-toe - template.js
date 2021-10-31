@@ -37,6 +37,7 @@ const initState = () => {
     
     matrix = Array(rows).fill(null).map(item=>Array(cols).fill(null));
 
+    stepCount = 0; 
 }
 
 /**
@@ -101,7 +102,7 @@ akkor beállítja a 0-t, hiszen a másik játékos azzal fog tenni egy jelet,
 ha pedig a 0-t használtuk, beállítja az X-et.
 */
 const setMark = () => {
-    if (mark==='X'){mark='0'} else if(mark==='0'){mark='X'}
+    mark = mark==='X'?'0':'X'
 }
 
 /**
