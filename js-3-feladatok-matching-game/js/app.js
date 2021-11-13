@@ -55,9 +55,9 @@ const clearBoard = () => {
 }
 // Játék menete
 const validatePair = (card) => {
-  console.log(card)
   if (card.lastElementChild.textContent === firstCardUp.lastElementChild.textContent){
     numberOfPairsFound += 1;
+    console.log('Number of pairs found: ',numberOfPairsFound)
     card.removeEventListener('click',turnCardUp)
     firstCardUp.removeEventListener('click',turnCardUp)
   } else {
@@ -68,23 +68,21 @@ const validatePair = (card) => {
     },500)
   }
   if (numberOfPairs === numberOfPairsFound){
-    // Játék vége
+    console.log('All pairs found!')
+    endGame()
   }
 }
 
 
 const turnCardUp = (event) => {
-  console.log(event.target);
   let card = event.target;
   if (card.className !== 'card'){
     card = card.parentElement;
   }
   numberOfCardsUp += 1;
-  console.log('Number of card up: ', numberOfCardsUp, 'Card: ',card)
   card.style = 'transform: rotateY(180deg)';
   if (numberOfCardsUp === 1){
     firstCardUp = card;
-    console.log(firstCardUp)
   }
   if (numberOfCardsUp >= 2){
     validatePair(card);
@@ -109,6 +107,7 @@ const removeEventListenersFromCards = () => {
 }
 // Vezérlők
 const startGame = () => {
+  console.log('Game started.')
   if (firstGameEnded){
     
     clearBoard();
@@ -121,7 +120,9 @@ const startGame = () => {
 
 const endGame = () => {
   removeEventListenersFromCards();
+  console.log('First game ended.')
   firstGameEnded = true;
+  numberOfPairsFound = 0;
   // Időmérő leáll
   // Felirat
   setTimeout(startGame,5000);
