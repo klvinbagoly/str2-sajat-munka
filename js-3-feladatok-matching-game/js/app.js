@@ -1,7 +1,7 @@
 const allAnimals = ['🐱','🐶','🐨','🐷','🐀','🐰','🦊','🐻','🐸','🐵']
 
 const numberOfPairs = 5;
-let firstGameStarted = false;
+let firstGameEnded = false;
 let numberOfPairsFound = 0;
 let numberOfCardsUp = 0; // Egy körben hány kártya lett felfordítva.
 let firstCardUp; // Az első felfordított kártya egy menetben.
@@ -55,11 +55,12 @@ const clearBoard = () => {
 }
 // Játék menete
 const validatePair = (card) => {
+  console.log(card)
   if (card.lastElementChild.textContent === firstCardUp.lastElementChild.textContent){
     numberOfPairsFound += 1;
     card.removeEventListener('click',turnCardUp)
     firstCardUp.removeEventListener('click',turnCardUp)
-  } else { 
+  } else {
     setTimeout(() => {
 
       turnCardDown(card);
@@ -74,21 +75,23 @@ const validatePair = (card) => {
 
 const turnCardUp = (event) => {
   console.log(event.target);
-  const card = event.target.parentElement;
+  let card = event.target;
+  if (card.className !== 'card'){
+    card = card.parentElement;
+  }
   numberOfCardsUp += 1;
   console.log('Number of card up: ', numberOfCardsUp, 'Card: ',card)
   card.style = 'transform: rotateY(180deg)';
-  console.log(card.style.transform)
   if (numberOfCardsUp === 1){
     firstCardUp = card;
     console.log(firstCardUp)
   }
   if (numberOfCardsUp >= 2){
     validatePair(card);
+    numberOfCardsUp = 0;
   }
 }
 const turnCardDown = (card) => {
-  numberOfCardsUp -= 1;
   card.style = 'transform: rotateY(0deg)';
   
 }
@@ -106,19 +109,19 @@ const removeEventListenersFromCards = () => {
 }
 // Vezérlők
 const startGame = () => {
-  if (firstGameStarted){
+  if (firstGameEnded){
     
+    clearBoard();
+    createBoard();
   }
-  clearBoard();
-  createBoard();
   addEventListenersToCards();
-  console.log('Evemtlisteners added.')
   // Időmérő
 }
 
 
 const endGame = () => {
   removeEventListenersFromCards();
+  firstGameEnded = true;
   // Időmérő leáll
   // Felirat
   setTimeout(startGame,5000);
