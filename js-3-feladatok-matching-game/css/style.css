@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+
+.top {
+  height: 100px;
+  background-image: linear-gradient(to top,rgb(58, 153, 207), rgb(100, 247, 100));
+}
+
+body {
+  font-family:  'Roboto', sans-serif;
+  margin: 0;
+  height: 100vh;
+  background-color: rgb(58, 153, 207);
+  font-size: 1.2em;
+}
+
+hr {
+  margin: 0.1em;
+}
+
+h1, h3, p {
+  margin: 10px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 105px);
+  background-image: linear-gradient(to bottom, rgb(58, 153, 207), rgb(160, 229, 247) 50%, rgb(58, 153, 207) 100%);
+}
+
+.game__table {
+  background-color: rgb(250, 241, 228);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 10px #6784e0;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game__board {
+   display: flex;
+   flex-direction: column;
+   height: fit-content;
+   margin-top: 20px;
+}
+
+[class$='row'] {
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  height: 5rem;
+  width: 3rem;
+  font-size: 2.25rem;
+  margin: 0.5rem;
+  position: relative;
+  background-color: transparent;
+  perspective: 100px;
+  transition: all 0.5s;
+  transform-style: preserve-3d;
+
+}
+
+.card-up, .card-down {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 0 #888888;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s;
+ position: absolute;
+ backface-visibility: hidden;
+}
+
+.card-down {
+  background-image: repeating-linear-gradient(40deg, #464242, #ffffff 5%, #464242 10%);
+}
+
+.card:active {
+  transform: rotateY(180deg);
+}
+
+.card-up {
+  transform: rotateY(180deg);
+}
+
+.card-up:active {
+
+}
+
+@media only screen and (min-width:520px) {
+  body {
+    font-size: 1em;
+  }
+  .game__table {
+    width: 70%;
+  }
+  .card {
+    height: 6.66rem;
+    width: 4rem;
+    font-size: 3rem;
+  }
+}
+@media only screen and (min-width:800px) {
+  .game__table {
+    width: 50%;
+  }
+}
