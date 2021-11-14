@@ -84,17 +84,13 @@ main {
   background-image: repeating-linear-gradient(40deg, #464242, #ffffff 5%, #464242 10%);
 }
 
-.card:active {
-  transform: rotateY(180deg);
-}
+
 
 .card-up {
   transform: rotateY(180deg);
 }
 
-.card-up:active {
 
-}
 
 .results {
   position: absolute;
