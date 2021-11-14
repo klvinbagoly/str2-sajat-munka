@@ -1,4 +1,4 @@
-const allAnimals = ['🐱','🐶','🐨','🐷','🐀','🐰','🦊','🐻','🐸','🐵']
+const allAnimals = ['🐱','🐶','🐨','🐷','🐀','🐰','🦊','🐻','🐸','🐵','🐴','🐢','🐼','🦁','🐮']
 
 const numberOfPairs = 5;
 let firstGameEnded = false;
@@ -6,6 +6,8 @@ let numberOfPairsFound = 0;
 let numberOfCardsUp = 0; // Egy körben hány kártya lett felfordítva.
 let firstCardUp; // Az első felfordított kártya egy menetben.
 
+const counter = new Date(0); // Stopper
+const recordTime = new Date();
 
 // Játéktér létrehozása
 const createCard = (icon,row)=> {
@@ -105,26 +107,49 @@ const removeEventListenersFromCards = () => {
   cards.forEach(card => card.removeEventListener('click',turnCardUp))
 
 }
+
+// Időmérő
+const showTime = () => {
+  if (numberOfPairsFound === numberOfPairs) return;
+
+  document.getElementById('counter').textContent = 
+  counter.getMinutes().toString().padStart(2,0) + ':' + 
+  counter.getSeconds().toString().padStart(2,0);
+
+  counter.setSeconds(counter.getSeconds() + 1);
+
+  setTimeout(showTime,1000)
+}
+
+const showResults = () => {
+  if (counter < recordTime) {
+    recordTime.setTime(counter);
+    document.querySelector('.results').textContent = 'Your record: ' +
+    document.getElementById('counter').textContent
+  }
+}
 // Vezérlők
 const startGame = () => {
   console.log('Game started.')
+  counter.setTime(0);
+  numberOfPairsFound = 0;
+
   if (firstGameEnded){
     
     clearBoard();
     createBoard();
   }
   addEventListenersToCards();
-  // Időmérő
+  showTime();
 }
 
 
 const endGame = () => {
   removeEventListenersFromCards();
+  showResults();
   console.log('First game ended.')
   firstGameEnded = true;
-  numberOfPairsFound = 0;
   // Időmérő leáll
-  // Felirat
   setTimeout(startGame,5000);
 }
 

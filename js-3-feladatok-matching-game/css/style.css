@@ -96,6 +96,11 @@ main {
 
 }
 
+.results {
+  position: absolute;
+  color:darkblue;
+}
+
 @media only screen and (min-width:520px) {
   body {
     font-size: 1em;
