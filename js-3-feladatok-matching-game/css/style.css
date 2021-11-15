@@ -85,11 +85,9 @@ main {
 }
 
 
-
 .card-up {
   transform: rotateY(180deg);
 }
-
 
 
 .results {

@@ -1,6 +1,6 @@
-const readFeet = () => document.querySelector('#feet').value;
+const readFeet = () => document.querySelector('.input__feet').value;
 
-const readInches = () => document.querySelector('#inches').value;
+const readInches = () => document.querySelector('.input__inches').value;
 
 const convert = () => 30.48 * readFeet() + 2.54 * (readInches() || 0);
 
@@ -22,8 +22,8 @@ const writeResult = (event) => {
   event.preventDefault();
   if (!verifyInputs()) return;
   document.querySelector('.result').textContent = `Result: ${convert()} cm.`;
-  document.querySelector('#feet').value = '';
-        document.querySelector('#inches').value = '';
+  document.querySelector('.input__feet').value = '';
+        document.querySelector('.input__inches').value = '';
 }
 
 document.querySelector('.submit-button').addEventListener('click', writeResult)

@@ -112,7 +112,7 @@ const removeEventListenersFromCards = () => {
 const showTime = () => {
   if (numberOfPairsFound === numberOfPairs) return;
 
-  document.getElementById('counter').textContent = 
+  document.querySelector('.counter__span').textContent = 
   counter.getMinutes().toString().padStart(2,0) + ':' + 
   counter.getSeconds().toString().padStart(2,0);
 
@@ -125,7 +125,7 @@ const showResults = () => {
   if (counter < recordTime) {
     recordTime.setTime(counter);
     document.querySelector('.results').textContent = 'Your record: ' +
-    document.getElementById('counter').textContent
+    document.querySelector('.counter__span').textContent
   }
 }
 // Vezérlők
