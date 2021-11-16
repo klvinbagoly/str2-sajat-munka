@@ -76,7 +76,7 @@ const validatePair = (card) => {
 }
 
 
-const turnCardUp = function(){
+const turnCardUp = function(){ // Event.target was sometimes the card-down, sometimes the card itself, I don't understand... But "this" version is shorter anyway.
   numberOfCardsUp += 1;
   this.style = 'transform: rotateY(180deg)';
   if (numberOfCardsUp === 1){
