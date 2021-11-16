@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #cccccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.balloon {
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  margin: 5px;
+}
+
+.red{
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: yellowgreen;
+}
+
+.gray {
+  background-color: gray;
+}
+
+
+
+.balloon--popped {
+  height: 80px;
+  width: 80px;
+  margin: 5px;
+  background-color: transparent;
+}
+
+.message {
+  display: none;
+  font-size: 5rem;
+  color: #ee3333;
+}
+
+.wow {
+  color: blue;
+}
+
+@media only screen and (max-width:450px){
+  .balloon, .balloon--popped{
+    height: 55px;
+    width: 55px;
+  }
+
+  .message {
+    font-size: 3.5rem;
+  }
+}
