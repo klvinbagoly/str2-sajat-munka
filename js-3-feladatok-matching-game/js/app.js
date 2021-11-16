@@ -76,18 +76,14 @@ const validatePair = (card) => {
 }
 
 
-const turnCardUp = (event) => {
-  let card = event.target;
-  if (card.className !== 'card'){
-    card = card.parentElement;
-  }
+const turnCardUp = function(){
   numberOfCardsUp += 1;
-  card.style = 'transform: rotateY(180deg)';
+  this.style = 'transform: rotateY(180deg)';
   if (numberOfCardsUp === 1){
-    firstCardUp = card;
+    firstCardUp = this;
   }
   if (numberOfCardsUp >= 2){
-    validatePair(card);
+    validatePair(this);
     numberOfCardsUp = 0;
   }
 }
