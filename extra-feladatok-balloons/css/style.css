@@ -27,22 +27,27 @@ body {
 
 .red{
   background-color: red;
+  color: red;
 }
 
 .blue {
   background-color: blue;
+  color: blue;
 }
 
 .yellow {
   background-color: yellow;
+  color: yellow;
 }
 
 .green {
   background-color: yellowgreen;
+  color: yellowgreen;
 }
 
 .gray {
   background-color: gray;
+  color: gray;
 }
 
 
