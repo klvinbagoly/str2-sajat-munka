@@ -1,7 +1,6 @@
 const allAnimals = ['🐱','🐶','🐨','🐷','🐀','🐰','🦊','🐻','🐸','🐵','🐴','🐢','🐼','🦁','🐮']
 
 const numberOfPairs = 5;
-let firstGameEnded = false;
 let numberOfPairsFound = 0;
 let numberOfCardsUp = 0; // Egy körben hány kártya lett felfordítva.
 let firstCardUp; // Az első felfordított kártya egy menetben.
@@ -103,7 +102,7 @@ const turnCardDown = (card) => {
 const addEventListenersToCards = () => {
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => card.addEventListener('click',turnCardUp))
-  cards.forEach(card => card.removeEventListener('click',startGame))
+  cards.forEach(card => card.addEventListener('click',startGame))
 }
 
 const removeEventListenersFromCards = () => {
@@ -134,16 +133,11 @@ const showResults = () => {
 }
 // Vezérlők
 const startGame = () => {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => card.removeEventListener('click',startGame))
   console.log('Game started.')
-  counter.setTime(0);
   numberOfPairsFound = 0;
 
-  if (firstGameEnded){
-    
-    clearBoard();
-    createBoard();
-  }
-  addEventListenersToCards();
   showTime();
 }
 
@@ -152,15 +146,20 @@ const endGame = () => {
   removeEventListenersFromCards();
   showResults();
   console.log('First game ended.')
-  firstGameEnded = true;
   // Időmérő leáll
-  setTimeout(startGame,5000);
+  setTimeout(newGame,5000);
+}
+
+const newGame = () => {
+  console.log('New game started.')
+  clearBoard();
+    createBoard();
+    counter.setTime(0);
+    document.querySelector('.counter__span').textContent = '00:00';
+    addEventListenersToCards();
 }
 
 // ~~~~~~~~~~~~~~~~~~~ //
 createBoard();
 
-const cards = document.querySelectorAll('.card');
-  cards.forEach(card => card.addEventListener('click',startGame))
-  cards.forEach(card => card.addEventListener('click',turnCardUp))
-
+addEventListenersToCards();
