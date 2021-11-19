@@ -36,12 +36,20 @@ const fillRows = (animalArray) => {
   });
 }
 
+const shuffleFisherYates = (array) => {
+  array.forEach((item, i) =>  {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], item];
+  }) 
+  return array;
+}
+
 const createBoard = () => {
-  allAnimals.sort(()=>Math.random() - 0.5); 
+  shuffleFisherYates(allAnimals);
   const animals = Array(numberOfPairs)
   .fill(null)
   .map((item,index) => allAnimals[index]); // Kiválasztjuk az 5 állatot.
-  const animalArray = [...animals, ...animals].sort(()=>Math.random() - 0.5);
+  const animalArray = shuffleFisherYates([...animals, ...animals]);
   fillRows(animalArray)
 }
 

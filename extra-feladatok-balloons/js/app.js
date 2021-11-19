@@ -7,18 +7,21 @@ const createBalloon = (color,row) => {
 const createRow = (colors) => {
   const row = document.createElement('div');
   row.classList.add('row');
-  for (let i = 0; i<5; i++){
-    createBalloon(colors[i],row)
-  }
+  colors.forEach(color=> createBalloon(color, row))
   document.querySelector('.container').appendChild(row)
+}
+
+const shuffleFisherYates = (array) => {
+  array.forEach((item, i) =>  {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], item];
+  }) 
+  return array;
 }
 
 const createCanvas = () => {
   const colors = ['red','blue','yellow','green','gray'];
-    for (let i = 0; i < 5; i++){
-      colors.sort(() => Math.random() - 0.5);
-      createRow(colors)
-    }
+    colors.forEach(() => createRow(shuffleFisherYates(colors)))
 }
 
 const popBalloon = function(){   // Arrow function-nél a this === Window!!!
