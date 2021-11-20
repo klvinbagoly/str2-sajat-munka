@@ -122,5 +122,6 @@ main {
   .sidebar__form {
     position: absolute;
     top: 30px;
+    bottom: auto;
   }
 }
