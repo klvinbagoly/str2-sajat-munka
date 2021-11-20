@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500&family=IM+Fell+English+SC&display=swap');
+
+body {
+  display: flex;
+}
+
+:root {
+  --sidebar-bg-color:rgb(48, 48, 56);
+  --sidebar-main-color: #ddd;
+}
+
+
+main {
+  width: 75%;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  background: #ddd url('../assets/site/mapblue.jpg');
+}
+
+.main__figure {
+  flex-basis: 12.5%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.main__figure:hover {
+  text-shadow: 2px 2px 2px rgb(87, 87, 87);
+  cursor: pointer;
+}
+
+.main__img {
+  padding: 1% 25%;
+  
+}
+
+.main__capture {
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+.sidebar {
+  width: 25%;
+  background-color: var(--sidebar-bg-color);
+  color: var(--sidebar-main-color);
+  font-size: 0.5rem;
+}
+
+.sidebar h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  text-align: center;
+}
+
+.sidebar__picture {
+  width: 90%;
+  padding: 5%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.sidebar__house {
+  float: right;
+  padding: 10px
+}
+
+.sidebar__description h3 {
+  font-family: 'Aclonica', sans-serif;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.sidebar__description p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  padding: 10px;
+  text-align: justify;
+  line-height: 1.2em;
+}
+
+.sidebar__description * {
+  position: relative;
+  animation: slidebar 1s ease-out forwards;
+}
+
+@keyframes slidebar {
+  0% {transform: translate(500px);}
+  100% {transform: translate(0);}
+}
+
+.sidebar__form {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.sidebar__form button {
+  position: relative;
+  right: 10px;
+  background-color: var(--sidebar-bg-color);
+  color: var(--sidebar-main-color);
+  border: 1px solid var(--sidebar-main-color);
+  border-radius: 3px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.sidebar__form input {
+  border-radius: 3px;
+  padding: 3px;
+}
