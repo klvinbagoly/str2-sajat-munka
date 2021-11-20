@@ -2,6 +2,7 @@
 
 body {
   display: flex;
+  margin: 0;
 }
 
 :root {
@@ -109,4 +110,13 @@ main {
 .sidebar__form input {
   border-radius: 3px;
   padding: 3px;
+}
+
+@media only screen and (max-width:800px){
+  body {
+    flex-direction:column-reverse;
+  }
+  main, .sidebar {
+    width: 100%;
+  }
 }
