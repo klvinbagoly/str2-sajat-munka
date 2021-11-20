@@ -119,4 +119,8 @@ main {
   main, .sidebar {
     width: 100%;
   }
+  .sidebar__form {
+    position: absolute;
+    top: 30px;
+  }
 }
