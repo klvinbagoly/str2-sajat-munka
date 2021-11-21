@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Roboto+Mono&display=swap');
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px 7px;
+  width: 250px;
+  height: 300px;
+  padding: 10px;
+  background-color: #ddd;
+}
+
+.calculator, .calculator > * {
+  border: 1px solid #888;
+  border-radius: 5px;
+}
+
+.calculator > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.results {
+  grid-column: 1 /  5;
+  height: 40px;
+  background-color: #fff;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.5rem;
+  justify-content: end;
+  overflow: hidden;
+}
+
+.calculate {
+  grid-row: 3 / 7;
+  grid-column: 4 ;
+  background-color: #0088ff;
+  color: #fff;
+}
+
+.number, .clear {
+  background-color: #bbb;
+}
+
+.operator {
+  background-color: #888;
+}
