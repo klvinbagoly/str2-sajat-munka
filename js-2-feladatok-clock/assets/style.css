@@ -1,0 +1,24 @@
+@font-face {
+  font-family: cyberverse;
+  src: url('../Cyberverse\ Condensed.otf');
+}
+body {
+  background-color: #bbbbbb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.clock {
+  background-color: #202020;
+  color:cyan;
+  font-family: cyberverse;
+  font-size: 3rem;
+  padding: 1rem;
+  border: 2px solid goldenrod;
+  border-radius: 1rem;
+  min-width: 212px;
+  max-width: 212px;
+  text-align: center;
+}
