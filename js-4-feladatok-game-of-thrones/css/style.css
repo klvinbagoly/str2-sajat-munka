@@ -43,7 +43,7 @@ main {
 }
 
 .sidebar {
-  width: 25%;
+  width: 300px;
   background-color: var(--sidebar-bg-color);
   color: var(--sidebar-main-color);
   font-size: 0.5rem;

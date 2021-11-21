@@ -57,6 +57,8 @@ const showDescription = (char, sidebar) => {
 }
 
 const showCharachter = (char = {}) => {
+  document.querySelectorAll('.main__figure')
+  .forEach(figure => figure.style.boxShadow = 'none');
   const sidebar = document.querySelector('.sidebar__description');
   sidebar.innerHTML = '';
   showPicture(char, sidebar);
@@ -69,7 +71,8 @@ const createEventListeners = async () => {
 
   document.querySelectorAll('.main__figure')
   .forEach(figure => figure.addEventListener('click', function(){showCharachter(charachters
-    .find(char => char.name === this.lastElementChild.textContent))}))
+    .find(char => char.name === this.lastElementChild.textContent));
+      this.style.boxShadow = '2px 2px 2px rgb(87, 87, 87)'}))
 }
 
 // Search
