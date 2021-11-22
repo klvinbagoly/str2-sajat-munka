@@ -13,7 +13,7 @@ document.querySelector('.results').textContent = ''
 
 const parseResult = () => {
   const operation = document.querySelector('.results').textContent;
-  const tester = /^-?(\d+(?:\.\d+)?)([+\-×÷]\d+(?:\.\d+)?)*$/;
+  const tester = /^-?(\d+(?:\.\d+)?)([+\-×÷]-?\d+(?:\.\d+)?)*$/;
   if (operation.match(tester) === null){
     document.querySelector('.results').textContent = 'Not valid operation.';
     return;
@@ -22,7 +22,7 @@ const parseResult = () => {
 }
 
 const calculate = (str = '0+0') => {
-  str.match(/(?:\d+(?:\.\d+)?)(?:[×÷]\d+(?:\.\d+)?)*/g)
+  str.match(/(?:-?\d+(?:\.\d+)?)(?:[×÷]-?\d+(?:\.\d+)?)*/g)
   .forEach(op => str = str.replace(op, multiplyAndDivide(op)));
 
   if (str.includes('NaN')){
