@@ -9,10 +9,10 @@ const getUsers = async (url) => {
   fetch(url, fetchOptions)
   .then(data => data.json(),
   err => console.error(err)
-  ).then(data => fillDataTable(data.users))
+  ).then(data => fillDataTable(data))
 }
 
-getUsers('./MOCK_DATA.json')
+getUsers('http://localhost:3000/users')
 
 const fillDataTable = (data) => {
   const table = document.querySelector('.users-table');
@@ -30,10 +30,8 @@ const fillDataTable = (data) => {
           class: 'user-input',
           value: row[k],
           name: k,
+          readonly: true
       });
-        if (k === 'id') {
-        input.setAttribute("readonly", true)
-      } 
         td.appendChild(input)
       } catch (err) {
         console.log(err)
@@ -74,8 +72,8 @@ const createAnyElement = (elem, attributes = {}) => {
 
 const createBtnGroup = () => {
   const btnGroup = createAnyElement('div', {class: 'btn-group'});
-  const btnEdit = createAnyElement('button', {class: 'btn btn-edit', onclick: 'editUser(this)'});
-  btnEdit.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
+  const btnEdit = createAnyElement('button', {class: 'btn btn-edit', onclick: 'editUser(event, this)'});
+  btnEdit.innerHTML = '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'  ;
   const btnDel = createAnyElement('button', {class: 'btn btn-delete', onclick: 'deleteUser(this)'});
   btnDel.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
 
@@ -87,7 +85,8 @@ const createBtnGroup = () => {
 
 const deleteUser = (elem) => {
   let tr = elem.parentElement.parentElement.parentElement;
-  let id = tr.firstElementChild.textContent;
+  let id = tr.firstElementChild.firstElementChild.value;
+  console.log(id)
   const fetchOptions = {
     method: 'DELETE',
     mode: 'cors',
@@ -98,7 +97,7 @@ const deleteUser = (elem) => {
     response => response.json(),
     err => console.error(err)
   ).then(
-    () => getUsers('./MOCK_DATA.json')
+    () => getUsers('http://localhost:3000/users')
   )}
 }
 
@@ -125,7 +124,8 @@ const newUserRow = row => {
   return tr
 }
 
-const addUser = btn => {
+const addUser = ( btn) => {
+  
   const tr = btn.parentElement.parentElement;
   const data = getRowData(tr);
   delete data.id;
@@ -142,7 +142,7 @@ const addUser = btn => {
     response => response.json(),
     err => console.error(err)
   ).then(
-    data => getUsers('./MOCK_DATA.json')
+    data => getUsers('http://localhost:3000/users')
   )
 }
 
@@ -155,8 +155,22 @@ const getRowData = tr => {
 return data;
 }
 
-const editUser = btn => {
+const editUser = (event,btn) => {
+  console.log(event)
+  event.preventDefault();
+  btn.innerHTML = '<i class="fa fa-floppy-o" aria-hidden="true"></i>';
+const btnUndo = btn.parentElement.lastElementChild
+btnUndo.innerHTML = '<i class="fa fa-undo" aria-hidden="true"></i>';
+
+
   const tr = btn.parentElement.parentElement.parentElement;
+  const inputs = tr.querySelectorAll('input');
+  console.log(inputs)
+  inputs.forEach(input => {
+    if (input.name !== 'id'){
+      input.setAttribute('readonly', 'false')
+    }
+  })
   
   const data = getRowData(tr);
    
@@ -173,6 +187,6 @@ const editUser = btn => {
     resp => resp.json(),
     err => console.error(err)
   ).then(
-    data => getUsers('./MOCK_DATA.json')
+    data => getUsers('http://localhost:3000/users')
   )
 }
