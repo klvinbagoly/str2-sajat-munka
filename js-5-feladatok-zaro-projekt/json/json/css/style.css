@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+table {
+  padding: 5px;
+  border: 1px solid black;
+  border-right: none;
+}
+
+thead {
+  background-color: #424242; /* ;) */
+  color: #dedede;
+}
+
+thead td {
+  padding: 2px;
+  border-radius: 2px;
+  border: 2px solid #1f1212;
+}
+
+input[readonly] {
+  background-color: #ddd;
+  border: none;
+  cursor: default;
+}
+
+input {
+  background-color: #F6ECB7;
+  border: 1px solid #424242
+}
+
+input.new-user-input {
+  outline: 2px solid rgba(77,145,226,.3)
+}
+
+.btn {
+  padding: 0 15px;
+}
+
+.btn-edit {
+  color: rgb(29, 29, 247);
+}
+
+.btn-delete {
+  color: rgb(155, 7, 7);
+}
+
+.danger {
+  background-color: red;
+}
+
+.success {
+  background-color: lightgreen;
+}

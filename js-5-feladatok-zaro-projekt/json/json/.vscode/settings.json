@@ -1,3 +1,5 @@
 {"liveServer.settings.ignoreFiles" : [
-  "db/*.*"
-]}
+  "**/*.json"
+],
+"liveServer.settings.CustomBrowser" : "chrome" 
+}
