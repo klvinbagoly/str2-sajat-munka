@@ -17,6 +17,20 @@ table {
   flex-direction: column-reverse;
 }
 
+input {
+  line-height: 1.5em;
+}
+
+
+tr:hover {
+  background-color: lightsteelblue;
+}
+
+input:focus {
+  outline: none;
+}
+
+
 tbody {
   display: flex;
   flex-direction: column-reverse;
@@ -31,11 +45,26 @@ thead td {
   padding: 2px;
   border-radius: 2px;
   border: 2px solid #1f1212;
-  width: 163px;
 }
 
 thead td:last-child {
-  width: 80px
+  width: 90px
+}
+
+.id-th {
+  width: 7ch;
+}
+
+.name-th {
+  width: 14ch;
+}
+
+.address-th {
+  width: 25.5ch;
+}
+
+.email-th {
+  width: 22ch;
 }
 
 input[readonly] {
@@ -50,8 +79,9 @@ input {
 }
 
 .btn {
-  padding: 0 15px;
-  border: 2px solid #aaa
+  padding: 2px 15px;
+  border: 2px solid #aaa;
+  cursor: pointer;
 }
 
 .btn-edit {
@@ -64,6 +94,14 @@ input {
 
 .btn-new {
   color: rgb(22,88,22)
+}
+
+.btn-save {
+  background-color: lightgreen;
+}
+
+.btn-undo {
+  background-color: rgb(253, 253, 161);
 }
 
 .danger {

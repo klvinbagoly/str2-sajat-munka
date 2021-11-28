@@ -7,6 +7,12 @@ import {
 
 const userKeys = ['id', 'name', 'address', 'email']
 const nonWriteableUsers = []
+const sizes = {
+ id: 5,
+ name: 15,
+ address: 30,
+ email: 25
+}
 
 const getUsers = (url) => {
   const fetchOptions = {
@@ -27,6 +33,7 @@ const fillDataTable = (data) => {
   table.innerHTML = '';
 
   newUserRow(table);
+
   
   for (let row of data){
     let tr = table.insertRow();
@@ -37,6 +44,7 @@ const fillDataTable = (data) => {
           class: 'user-input',
           value: row[k],
           name: k,
+          size: sizes[k],
           readonly: true
       });
         td.appendChild(input)
@@ -58,7 +66,8 @@ const fillDataTable = (data) => {
   const the = thead.insertRow()
   for (let k of userKeys){
     const th = the.insertCell();
-    th.textContent = returnHead(k)
+    th.textContent = returnHead(k);
+    th.classList.add(`${k}-th`)
   }
    const last = the.insertCell()
    last.textContent = 'Actions'
@@ -128,5 +137,6 @@ export {
   createAnyElement,
   userKeys,
   getUsers,
-  nonWriteableUsers
+  nonWriteableUsers,
+  sizes
 }

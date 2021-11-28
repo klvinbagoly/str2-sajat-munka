@@ -2,8 +2,18 @@ import {
   createAnyElement,
   userKeys,
   getUsers,
-  nonWriteableUsers
+  nonWriteableUsers,
+  sizes
 } from './app.js'
+
+
+const patterns = {
+  id: /.*/,
+  name: /^[A-Z][a-z]* [A-Z][a-z]*$/,
+  address: /^\d* ([A-Z0-9][a-z0-9 ]*)+$/,
+  email:    /^[a-z0-9\-.]+@[a-z0-9\-.]+\.[a-z]{2,4}$/
+} 
+
 
 const newUserRow = (table) => {
   let tr = table.insertRow();
@@ -11,7 +21,8 @@ const newUserRow = (table) => {
     let td = tr.insertCell()
     let input = createAnyElement('input', {
       class: 'new-user-input',
-      name : key
+      name : key,
+      size: sizes[key]
     })
     if (key === 'id'){
       input.setAttribute('readonly', 'true');
@@ -67,12 +78,7 @@ return data;
 
 const validateUser = tr => {
   const data = getRowData(tr);
-  const patterns = {
-    id: /.*/,
-    name: /^[A-Z][a-z]* [A-Z][a-z]*$/,
-    address: /^\d* ([A-Z0-9][a-z0-9 ]*)+$/,
-    email:    /^[a-z0-9\-.]+@[a-z0-9\-.]+\.[a-z]{2,4}$/
-  }
+  
   if (Object.keys(data).some(key => data[key].match(patterns[key]) === null)){
     showMessage('Invalid input!', 'danger', tr)
     return false
@@ -80,6 +86,7 @@ const validateUser = tr => {
 }
 
 const showMessage = (message, type, row) => {
+  if (row.childElementCount > 5) return;
   const td = row.insertCell();
   td.classList.add(type);
   td.textContent = message;
@@ -93,6 +100,8 @@ const editUser = (btn) => {
 const btnUndo = btn.parentElement.lastElementChild
 btnUndo.innerHTML = '<i class="fa fa-undo" aria-hidden="true"></i>';
 btn.title = 'Save changes';
+btn.classList.replace('btn-edit', 'btn-save')
+btnUndo.classList.replace('btn-delete', 'btn-undo')
 btnUndo.title = 'Undo';
 
 const tr = btn.parentElement.parentElement.parentElement;
