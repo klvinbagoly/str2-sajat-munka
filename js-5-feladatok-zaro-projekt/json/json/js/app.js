@@ -26,8 +26,7 @@ const fillDataTable = (data) => {
   const table = document.querySelector('.users-table');
   table.innerHTML = '';
 
-  const newRow = newUserRow(data[0]);
-  table.appendChild(newRow);
+  newUserRow(table);
   
   for (let row of data){
     let tr = table.insertRow();
@@ -86,9 +85,15 @@ const createAnyElement = (elem, attributes = {}) => {
 
 const createBtnGroup = () => {
   const btnGroup = createAnyElement('div', {class: 'btn-group'});
-  const btnEdit = createAnyElement('button', {class: 'btn btn-edit', onclick: 'editUser(event, this)'});
+  const btnEdit = createAnyElement('button', {
+    class: 'btn btn-edit', 
+    onclick: 'editUser(this)',
+    title: 'Edit user'});
   btnEdit.innerHTML = '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'  ;
-  const btnDel = createAnyElement('button', {class: 'btn btn-delete', onclick: 'deleteUser(this)'});
+  const btnDel = createAnyElement('button', {
+    class: 'btn btn-delete',
+    onclick: 'deleteUser(this)',
+    title: 'Delete user'});
   btnDel.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
 
   btnGroup.appendChild(btnEdit);

@@ -5,37 +5,36 @@ import {
   nonWriteableUsers
 } from './app.js'
 
-const newUserRow = () => {
-  let tr = createAnyElement('tr');
-  for (let k of userKeys){
+const newUserRow = (table) => {
+  let tr = table.insertRow();
+  userKeys.forEach(key => {
     let td = tr.insertCell()
     let input = createAnyElement('input', {
       class: 'new-user-input',
-      name : k
+      name : key
     })
-    if (k === 'id'){
+    if (key === 'id'){
       input.setAttribute('readonly', 'true');
       input.value = 'Add user'
     }
     td.appendChild(input)
-  }
+  })
 
   let newBtn = createAnyElement('button', {
     class: 'btn btn-new',
-    onclick: 'addUser(this)'
+    onclick: 'addUser(this)',
+    title: 'Add new user'
   })
   newBtn.innerHTML = '<i class="fa fa-plus-circle" aria-hidden="true"></i>';
 
   let td = tr.insertCell();
   td.appendChild(newBtn)
-  return tr
 }
 
 const addUser = ( btn) => {
   
   const tr = btn.parentElement.parentElement;
   if (!validateUser(tr)) {
-    showMessage('Invalid input!', 'danger', tr)
     return
   }
   const data = getRowData(tr);
@@ -89,10 +88,12 @@ const showMessage = (message, type, row) => {
   }, 5000)
 }
 
-const editUser = (event,btn) => {
+const editUser = (btn) => {
   btn.innerHTML = '<i class="fa fa-floppy-o" aria-hidden="true"></i>';
 const btnUndo = btn.parentElement.lastElementChild
 btnUndo.innerHTML = '<i class="fa fa-undo" aria-hidden="true"></i>';
+btn.title = 'Save changes';
+btnUndo.title = 'Undo';
 
 const tr = btn.parentElement.parentElement.parentElement;
 const inputs = tr.querySelectorAll('input');

@@ -2,12 +2,24 @@
 
 body {
   font-family: 'Ubuntu', sans-serif;
+  background-color: #ebe7d5;
 }
 
 table {
   padding: 5px;
   border: 1px solid black;
   border-right: none;
+  margin: 20px;
+  background-color: rgb(99, 99, 99);
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 thead {
@@ -19,6 +31,11 @@ thead td {
   padding: 2px;
   border-radius: 2px;
   border: 2px solid #1f1212;
+  width: 163px;
+}
+
+thead td:last-child {
+  width: 80px
 }
 
 input[readonly] {
@@ -28,16 +45,13 @@ input[readonly] {
 }
 
 input {
-  background-color: #F6ECB7;
+  background-color: #eee;
   border: 1px solid #424242
-}
-
-input.new-user-input {
-  outline: 2px solid rgba(77,145,226,.3)
 }
 
 .btn {
   padding: 0 15px;
+  border: 2px solid #aaa
 }
 
 .btn-edit {
@@ -48,13 +62,19 @@ input.new-user-input {
   color: rgb(155, 7, 7);
 }
 
+.btn-new {
+  color: rgb(22,88,22)
+}
+
 .danger {
-  background-color: red;
+  background-color: rgb(255, 119, 119);
+  border: 1px solid #810000;
   animation: fadein 0.5s forwards;
 }
 
 .success {
   background-color: lightgreen;
+  border: 1px solid #1c6d1c;
   animation: fadein 0.5s forwards;
 }
 
