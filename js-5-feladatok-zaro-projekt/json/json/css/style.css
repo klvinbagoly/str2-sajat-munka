@@ -50,8 +50,21 @@ input.new-user-input {
 
 .danger {
   background-color: red;
+  animation: fadein 0.5s forwards;
 }
 
 .success {
   background-color: lightgreen;
+  animation: fadein 0.5s forwards;
+}
+
+@keyframes fadein{
+  0% {
+    opacity: 0;
+    transform: scale(0.5,0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }

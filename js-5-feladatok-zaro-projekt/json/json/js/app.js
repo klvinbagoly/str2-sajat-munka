@@ -39,10 +39,12 @@ const fillDataTable = (data) => {
       }
     }
     const btnGroup = tr.insertCell()
-    btnGroup.appendChild(createBtnGroup())  
-    if (nonWriteableUsers.includes(row.id)){
+    btnGroup.appendChild(createBtnGroup()) 
+    if (nonWriteableUsers.includes(row.id.toString())){
+      console.log(row.id)
      btnGroup.querySelectorAll('button').forEach(btn => btn.onclick = () => {
        console.log('Non-writeable user')
+       showMessage('Non-writeable user', 'danger', tr)
      })
     }
   }
@@ -77,9 +79,9 @@ const createAnyElement = (elem, attributes = {}) => {
 
 const createBtnGroup = () => {
   const btnGroup = createAnyElement('div', {class: 'btn-group'});
-  const btnEdit = createAnyElement('button', {class: 'btn btn-edit', onclick: 'editUser(event, this)', type: 'button'});
+  const btnEdit = createAnyElement('button', {class: 'btn btn-edit', onclick: 'editUser(event, this)'});
   btnEdit.innerHTML = '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'  ;
-  const btnDel = createAnyElement('button', {class: 'btn btn-delete', onclick: 'deleteUser(this)', type: 'button'});
+  const btnDel = createAnyElement('button', {class: 'btn btn-delete', onclick: 'deleteUser(this)'});
   btnDel.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
 
   btnGroup.appendChild(btnEdit);
@@ -167,7 +169,6 @@ return data;
 }
 
 const editUser = (event,btn) => {
-  event.preventDefault();
   btn.innerHTML = '<i class="fa fa-floppy-o" aria-hidden="true"></i>';
 const btnUndo = btn.parentElement.lastElementChild
 btnUndo.innerHTML = '<i class="fa fa-undo" aria-hidden="true"></i>';
@@ -181,7 +182,9 @@ inputs.forEach(input => {
   }
 })
 btn.onclick = () => {if (validateUser(tr)){
-  saveUser(tr)
+  showMessage('Changes saved.', 'success', tr);
+  setTimeout(()=>saveUser(tr),5000)
+  inputs.forEach(input => input.setAttribute('readonly','true'))
 }}
 btnUndo.onclick = () => getUsers('http://localhost:3000/users')
    document.querySelectorAll('button').forEach(button => {
@@ -209,7 +212,7 @@ const validateUser = tr => {
 
 const saveUser = (tr) => {
   const data = getRowData(tr);
-  showMessage('Changes saved.', 'success', tr)
+  
   nonWriteableUsers.push(data.id)
 const fetchOptions = {
   method: "PUT",
@@ -225,7 +228,8 @@ fetch(`http://localhost:3000/users/${data.id}`, fetchOptions).then(
   err => console.error(err)
 ).then(
   () => getUsers('http://localhost:3000/users')
-)}
+  )
+}
 
 const showMessage = (message, type, row) => {
   const td = row.insertCell();
