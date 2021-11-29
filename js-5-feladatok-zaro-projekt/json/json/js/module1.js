@@ -105,6 +105,7 @@ btnUndo.classList.replace('btn-delete', 'btn-undo')
 btnUndo.title = 'Undo';
 
 const tr = btn.parentElement.parentElement.parentElement;
+tr.classList.add('tr-edit')
 const inputs = tr.querySelectorAll('input');
 console.log(inputs)
 inputs.forEach(input => {
@@ -121,6 +122,7 @@ btn.onclick = () => {if (validateUser(tr)){
 btnUndo.onclick = () => getUsers('http://localhost:3000/users')
    document.querySelectorAll('button').forEach(button => {
      if (!tr.contains(button)){
+       button.classList.add('btn-disabled');
        button.onclick = () => {
          showMessage("You can't edit multiple users at once.", 'danger', tr)
        }

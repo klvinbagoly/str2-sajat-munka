@@ -26,6 +26,10 @@ tr:hover {
   background-color: lightsteelblue;
 }
 
+.tr-edit {
+  background-color: #424242;
+}
+
 input:focus {
   outline: none;
 }
@@ -102,6 +106,10 @@ input {
 
 .btn-undo {
   background-color: rgb(253, 253, 161);
+}
+
+.btn-disabled {
+  opacity: 0.5;
 }
 
 .danger {

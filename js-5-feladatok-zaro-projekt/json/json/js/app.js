@@ -56,10 +56,12 @@ const fillDataTable = (data) => {
     btnGroup.appendChild(createBtnGroup()) 
     if (nonWriteableUsers.includes(row.id.toString())){
       console.log(row.id)
-     btnGroup.querySelectorAll('button').forEach(btn => btn.onclick = () => {
+     btnGroup.querySelectorAll('button').forEach(btn => {btn.onclick = () => {
        console.log('Non-writeable user')
        showMessage('Non-writeable user', 'danger', tr)
-     })
+     }
+     btn.classList.add('btn-disabled')}
+     )
     }
   }
   const thead = createAnyElement('thead');
