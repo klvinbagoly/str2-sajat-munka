@@ -82,10 +82,23 @@ input {
   border: 1px solid #424242
 }
 
+input:invalid:focus {
+  border: 0.12vw solid red;
+}
+
+input:valid {
+  border: 0.15vw solid blue;
+}
+
 .btn {
   padding: 2px 15px;
   border: 2px solid #aaa;
   cursor: pointer;
+}
+
+.btn:hover {
+  background-color: gray;
+  border-style: groove;
 }
 
 .btn-edit {

@@ -9,7 +9,7 @@ import {
 
 const patterns = {
   id: /.*/,
-  name: /^[A-Z][a-z]* [A-Z][a-z]*$/,
+  name: /^[A-Z][a-z]* [a-z ]*[A-Z][a-z]*$/,
   address: /^\d* ([A-Z0-9][a-z0-9 ]*)+$/,
   email:    /^[a-z0-9\-.]+@[a-z0-9\-.]+\.[a-z]{2,4}$/
 } 
@@ -22,7 +22,9 @@ const newUserRow = (table) => {
     let input = createAnyElement('input', {
       class: 'new-user-input',
       name : key,
-      size: sizes[key]
+      size: sizes[key],
+      pattern: patterns[key].toString().slice(1,-1),
+      required: true
     })
     if (key === 'id'){
       input.setAttribute('readonly', 'true');
@@ -110,7 +112,8 @@ const inputs = tr.querySelectorAll('input');
 console.log(inputs)
 inputs.forEach(input => {
   if (input.name !== 'id'){
-    input.removeAttribute('readonly')
+    input.removeAttribute('readonly');
+    input.pattern = patterns[input.name].toString().slice(1,-1)
   }
 })
 btn.onclick = () => {if (validateUser(tr)){
