@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background-color: aliceblue;
+}
+
+header {
+  background-image: linear-gradient(to bottom, #363232, #584e4e);
+  color: #c6d1be;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+form {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px  70px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin: 20px 10px;
+  font-weight: 600;
+}
+
+.form-group input {
+  border-radius: 5px;
+  line-height: 1.66em;
+  padding: 0 1em;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: darkblue
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+table {
+  border-collapse: collapse;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+thead {
+  display: flex;
+}
+
+
+tr {
+  animation: newRow 0.5s forwards;
+}
+
+@keyframes newRow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 44px;
+  }
+}
+
+thead tr {
+  background-color: lightsteelblue;
+}
+
+
+
+tbody tr:nth-child(odd):not(.danger):not(.success) {
+  background-color: floralwhite;
+}
+
+tbody tr:nth-child(even):not(.danger):not(.success) {
+  background-color: gainsboro;
+}
+
+td {
+  box-shadow: 1px 1px 0 0 chocolate;
+  padding: 8px;
+}
+
+td input {
+  font-weight: 600;
+  line-height: 2em;
+  box-sizing: border-box;
+  border: none;
+}
+
+td input:not([readonly]), td input:not([readonly]):focus {
+  outline: 2px outset gray;
+  border-radius: 3px;
+}
+
+td input[readonly] {
+  border: transparent;
+  background-color: transparent;
+  cursor: default;
+}
+
+td input[readonly]:focus {
+  background-color: transparent;
+}
+
+td input:focus {
+  outline: none;
+  background-color: white;
+}
+
+input:invalid, input:invalid:focus {
+  background-color: lightsalmon;
+}
+
+input:valid {
+  background-color: floralwhite;
+}
+
+
+.danger {
+  background-color: darksalmon;
+  border: 2px solid darkred;
+  animation: message 5s;
+}
+
+.success {
+  background-color: aquamarine;
+  border: 2px solid cornflowerblue;
+  animation: message 5s;
+}
+
+@keyframes message {
+  0% {
+    height: 0;
+  }
+  10% {
+    height: 30px;
+  }
+  90% {
+    height: 30px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+button {
+  padding: 3px 6px;
+  margin: 0 5px;
+  border-radius: 3px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: lightslategray;
+}
+
+.button-disabled {
+  opacity: 0.4;
+}
+
+.button-disabled:hover {
+  background-color: #ebebeb;
+  cursor: default;
+}
+
+.edit-button {
+  color: seagreen;
+}
+
+.delete-button {
+  color: darkred;
+}
+
+.save-button {
+  color: darkblue;
+}
+
+.undo-button {
+ color: darkkhaki;
+}
+
+.new-user-button {
+  color: darkgreen;
+}
