@@ -73,16 +73,13 @@ const americanStates = ["Alabama",
 
 const toggleStates = () => {
   const selectState = document.querySelector('#state');
-  selectState.innerHTML = '<option selected>Choose...</option>';
+  selectState.innerHTML = '';
+  selectState.insertAdjacentHTML('afterbegin', '<option selected>Choose...</option>');
 
   const country = selectCountry.value;
   const stateList = country === 'usa' ? americanStates : country === 'hun' ? hungarianCounties : []
-  stateList.forEach(state => {
-    const option = document.createElement('option');
-    option.value = state;
-    option.textContent = state;
-    selectState.appendChild(option)
-  })
+  const htmlString = stateList.map(state => `<option value="${state}">${state}</option>`).join('');
+  selectState.insertAdjacentHTML('beforeend', htmlString)
 }
 
 selectCountry.addEventListener('change', toggleStates)
