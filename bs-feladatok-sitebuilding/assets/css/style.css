@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran&family=Lato:wght@300&family=Mulish:wght@300&display=swap');
+
+
+.catamaran {
+  font-family: 'Catamaran', Arial, Helvetica, sans-serif;
+}
+
+.lato {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+.muli {
+  font-family: 'Mulish', Arial, Helvetica, sans-serif;
+}
+
+#bootstrap-override .navbar-brand {
+  color: #fdd34c;
+}
+
+#bootstrap-override .navbar-brand:hover, #bootstrap-override .navbar-collapse a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+#bootstrap-override .navbar-collapse a {
+  color: #eabbd9;
+}
+
+.linearGradient {
+  background-image: url('../../img/bg-pattern.png'), linear-gradient(85deg, #d72631, #7c4394);
+}
+
+.yellowHover {
+  transition: all 0.3s ease;
+}
+
+.yellowHover:hover {
+  background: #fdcc52;
+  border-color: #fdcc52;
+  transition: all 0.3s ease;
+}
+
+.demoImg {
+  left: 10px;
+  top: 84px;
+}
+
+.bgYellow {
+  background-color: #fdca4a;
+}
+
+.border-bottom {
+  width: 100px;
+}
+
+.filter, .onTopOfFilter {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.filter {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.bg-blue {
+  background-color: #1da1f3;
+}
+
+.bg-darkblue {
+background-color: #3b5999;
+}
+
+.bg-red {
+background-color: #dd4c39;
+}
+
+.bg-blue, .bg-darkblue, .bg-red {
+  opacity: 0.9;
+}
+
+.bg-blue:hover, .bg-darkblue:hover, .bg-red:hover {
+  opacity: 1;
+}
+
+#weLoveNewFriends a {
+  color: white;
+}
+
+footer .nav a {
+  color: inherit;
+}
+
+footer .nav a:hover {
+  color: #fdcc52;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+  .demoImg {
+    top: 44px;
+  }
+  .headerText {
+    font-size: 1.25rem;
+  }
+  #bootstrap-override .navbar {
+    background-color: white;
+  }
+}
