@@ -3,7 +3,9 @@ $('[data-toggle="tooltip"]').tooltip()
 const navbar = document.querySelector('.navbar')
 
 window.addEventListener('scroll', () => {
-  if (document.body.scrollTop > screen.height || document.documentElement.scrollTop > screen.height) {
+  if (document.body.scrollTop > window.innerHeight
+    || document.documentElement.scrollTop > window.innerHeight
+    ) {
     navbar.style.backgroundColor = 'white'
   } else navbar.style.backgroundColor = 'transparent'
 })
