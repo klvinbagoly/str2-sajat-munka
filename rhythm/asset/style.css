@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=M+PLUS+Rounded+1c&display=swap');
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: moccasin;
+}
+
+.header {
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.row {
+  display: flex;
+  height: 200px;
+  background-color: ghostwhite;
+}
+
+.measure-sign {
+  align-self: center;
+  font-size: 50px;
+  padding: 20px;
+  font-family: 'Lobster', cursive;
+}
+
+.note-place {
+  flex-grow: 1;
+  border: 1px solid burlywood;
+  position: relative;
+}
+
+.note-place:hover {
+  background-color: gainsboro;
+  cursor: pointer;
+}
+
+.note-place:active {
+  background-color: dimgray;
+}
+
+.note.note-active {
+  background-color: black;
+  border: 1px solid black;
+  width: 12px;
+  height: 10px;
+  border-radius: 10px 2px;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+}
+
+.note.note-active::after {
+  position: absolute;
+  top: -70px;
+  left: 12px;
+  content: '';
+  background-color: black;
+  height: 70px;
+  width: 1px;
+}
+
+.flag.flag-single {
+  position: absolute;
+  bottom: 64px;
+  left: 34px;
+  height: 38px;
+  width: 28px;
+  border-right: 4px solid black;
+  border-radius: 30px;
+  transform: rotate(-20deg);
+}
+
+.flag.flag-bracket {
+  position: absolute;
+  bottom: 100px;
+  left: 43px;
+  height: 1px;
+  width: 102%;
+  border-top: 2px solid black;
+  z-index: 1;
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+footer label, footer input {
+  cursor: pointer;
+}
+
+#playButton {
+  font-size: 30px;
+  color: green;
+  background-color: transparent;
+  border: none;
+}
+
+.change-values input {
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  border-radius: 3px;
+  border: 1px outset gray;
+}
+
+@media only screen and (max-width: 650px) {
+  .note.note-active {
+    left: 10px
+  }
+
+  .flag.flag-single {
+    left: 14px
+  }
+
+  .flag.flag-bracket {
+    left: 23px
+  }
+
+  .row {
+    height: 150px
+  }
+
+  .measure-sign {
+    font-size: 40px;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+.row {
+  height: 120px;
+}  
+
+.measure-sign {
+  font-size: 35px;
+  padding: 5px;
+}
+
+.note.note-active {
+
+  left: 3px
+}
+
+.note.note-active::after {
+  top: -51px;
+    left: 12px;
+    height: 51px
+}
+
+.flag.flag-single {
+  left: 5px;
+  bottom: 55px;
+  height: 27px;
+  width: 23px;
+  border-right: 2px solid black;
+}
+
+.flag.flag-bracket {
+  bottom: 80px;
+    left: 18px;
+}
+}

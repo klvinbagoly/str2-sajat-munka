@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play rhythm</title>
+  <link rel="stylesheet" href="./asset/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1>Let's play some rhythm!</h1>
+    <p>Click on the rectangles to toggle the notes</p>
+  </header>
+  <main>
+    <div class="row">
+      <div class="measure-sign">4<br>4</div>
+      <div class="note-place">
+
+        <div class="flag flag-single"></div>
+        <div class="note note-active">
+        </div>
+      </div>
+      <div class="note-place">
+        <div class="flag flag-none"></div>
+
+        <div class="note note-none">
+        </div>
+      </div>
+      <div class="note-place">
+
+        <div class="flag flag-none"></div>
+        <div class="note note-none">
+        </div>
+      </div>
+      <div class="note-place">
+
+        <div class="flag flag-none"></div>
+        <div class="note note-none">
+        </div>
+      </div>
+      <div class="note-place">
+
+        <div class="flag flag-none"></div>
+        <div class="note note-none">
+        </div>
+      </div>
+      <div class="note-place">
+
+        <div class="flag flag-none"></div>
+        <div class="note note-none">
+        </div>
+      </div>
+      <div class="note-place">
+
+        <div class="flag flag-none"></div>
+        <div class="note note-none">
+        </div>
+      </div>
+      <div class="note-place">
+
+        <div class="flag flag-none"></div>
+        <div class="note note-none">
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="play">
+      <label for="playButton" id="playLabel">Play</label>
+      <input type="button" value="▶" id="playButton">
+    </div>
+    <div class="change-values">
+      <label for="bpm">Change tempo:</label>
+      <input type="number" name="bpm" id="bpm" value="120" min="30" max="360">
+    </div>
+  </footer>
+  <audio class="bass-drum" src="./asset/audio/bassdrum.mp3" preload="auto"></audio>
+  <audio class="tenor-drum" src="./asset/audio/tenordrum.mp3" preload="auto"></audio>
+  <audio class="snare-drum" src="./asset/audio/snare.mp3" preload="auto"></audio>
+  <script src="./asset/main.js" type="module">
+    // import {
+    //   startPlay
+    // } from './asset/play.js'
+  </script>
+  <script src="./asset/play.js" type="module"></script>
+</body>
+
+</html>
