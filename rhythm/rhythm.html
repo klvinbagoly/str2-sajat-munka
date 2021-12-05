@@ -75,6 +75,15 @@
     <div class="change-values">
       <label for="bpm">Change tempo:</label>
       <input type="number" name="bpm" id="bpm" value="120" min="30" max="360">
+      <small>bpm (between 30-360)</small>
+      <br>
+      <label for="measure">Change measure:</label>
+      <select name="measure" id="measure">
+        <option value="4/4">4/4</option>
+        <option value="3/4">3/4</option>
+        <option value="2/4">2/4</option>
+        <option value="6/8">6/8</option>
+      </select>
     </div>
   </footer>
   <audio class="bass-drum" src="./asset/audio/bassdrum.mp3" preload="auto"></audio>

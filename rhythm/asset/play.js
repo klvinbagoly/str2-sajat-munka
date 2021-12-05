@@ -1,6 +1,8 @@
 import {
   notes,
-  notePlaces
+  notePlaces,
+  measureGroup,
+  noteGroupNumber
 } from './main.js'
 
 const bassDrum = document.querySelector('.bass-drum');
@@ -31,10 +33,10 @@ const playNote = () => {
     // tenorDrum.pause();
     // snareDrum.pause(); 
 
-    if (currentNote % 4 === 0) {
+    if (currentNote % measureGroup === 0) {
       bassDrum.load();
       bassDrum.play()
-    } else if (currentNote % 2 === 0) {
+    } else if (currentNote % noteGroupNumber === 0) {
       tenorDrum.load();
       tenorDrum.play()
     } else {
@@ -42,7 +44,7 @@ const playNote = () => {
       snareDrum.play()}
   }
 
-  currentNote = currentNote > 6 ? 0 : currentNote + 1;
+  currentNote = currentNote > notes.length - 2 ? 0 : currentNote + 1;
   setTimeout(playNote, 30000 / bpm)
 }
 
@@ -76,6 +78,7 @@ playBtn.addEventListener('click', startPlay)
 bpmInput.addEventListener('change', () => {
   bpm = bpmInput.value;
   bpm = bpm < 30 ? 30 : bpm > 360 ? 360 : bpm;
+  bpmInput.value = bpm;
 })
 
 export {startPlay} 

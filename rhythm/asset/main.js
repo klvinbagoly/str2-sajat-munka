@@ -1,18 +1,25 @@
-const notePlaces = document.querySelectorAll('.note-place');
+import measureObject from "./measure.js";
+
+let notePlaces = document.querySelectorAll('.note-place');
 let notes = Array.from(document.querySelectorAll('.note')) ;
 let flags = Array.from(document.querySelectorAll('.flag'));
 
+let measureGroup = 4;
 let noteGroupNumber = 2;
 
-notePlaces.forEach((place, i) => place.addEventListener('click', () => {
-  if (notes[i].classList.contains('note-active')) {
-    notes[i].classList.replace('note-active', 'note-none')
-  } else notes[i].classList.replace('note-none', 'note-active')
-  createFlags()
-  //Visszaállítás
-  notes = Array.from(document.querySelectorAll('.note')) ;
-  flags = Array.from(document.querySelectorAll('.flag'));
-} ))
+const noteEventListeners = () => {
+  notePlaces.forEach((place, i) => place.addEventListener('click', () => {
+    if (notes[i].classList.contains('note-active')) {
+      notes[i].classList.replace('note-active', 'note-none')
+    } else notes[i].classList.replace('note-none', 'note-active')
+    createFlags()
+    //Visszaállítás
+    notes = Array.from(document.querySelectorAll('.note')) ;
+    flags = Array.from(document.querySelectorAll('.flag'));
+  } ))
+
+}
+
 
 const createFlags = () => {
   const noteGroup = notes.splice(0, noteGroupNumber);
@@ -39,7 +46,42 @@ const createSingleFlags = (flagGroup, noteGroup) => {
     noteGroup[i].classList.contains('note-active') ? ' flag-single' : ' flag-none'))
 }
 
+document.querySelector('#measure').addEventListener('change', function() {
+  const measure = this.value;
+  
+  const row = document.querySelector('.row');
+  row.innerHTML = '';
+  row.insertAdjacentHTML('afterbegin', `<div class="measure-sign">${measure.replace('/', '<br>')}</div>`);
+
+  for (let i = 0; i < measureObject[measure].length; i++) {
+    row.insertAdjacentHTML('beforeend', i === 0 ? `<div class="note-place">
+
+    <div class="flag flag-single"></div>
+    <div class="note note-active">
+    </div>
+  </div>` : `<div class="note-place">
+  <div class="flag flag-none"></div>
+
+  <div class="note note-none">
+  </div>
+</div>`)
+  }
+
+  measureGroup = measureObject[measure].measureGroup;
+  noteGroupNumber = measureObject[measure].noteGroupNumber;
+
+  notes = Array.from(document.querySelectorAll('.note')) ;
+  flags = Array.from(document.querySelectorAll('.flag'));
+  notePlaces = document.querySelectorAll('.note-place');
+
+  noteEventListeners()
+})
+
+noteEventListeners()
+
 export {
   notes,
-  notePlaces
+  notePlaces,
+  measureGroup,
+  noteGroupNumber
 }
