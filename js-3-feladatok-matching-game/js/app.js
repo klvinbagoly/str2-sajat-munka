@@ -65,14 +65,14 @@ const clearBoard = () => {
 // Játék menete
 const validatePair = (card) => {
   if (card.lastElementChild.textContent === firstCardUp.lastElementChild.textContent){
-    numberOfPairsFound += 1;
-    console.log('Number of pairs found: ',numberOfPairsFound)
-    card.removeEventListener('click',turnCardUp)
+    numberOfPairsFound += 1,
+    console.log('Number of pairs found: ',numberOfPairsFound),
+    card.removeEventListener('click',turnCardUp),
     firstCardUp.removeEventListener('click',turnCardUp)
   } else {
     setTimeout(() => {
 
-      turnCardDown(card);
+      turnCardDown(card),
       turnCardDown(firstCardUp);
     },500)
   }
@@ -86,8 +86,8 @@ const validatePair = (card) => {
 const turnCardUp = function(){ // Event.target was sometimes the card-down, sometimes the card itself, I don't understand... But "this" version is shorter anyway.
   if (this.style.transform === 'rotateY(180deg)') return;
   
-  numberOfCardsUp += 1;
-  this.style.transform = 'rotateY(180deg)';
+  numberOfCardsUp += 1,
+  this.style.transform = 'rotateY(180deg)'
   if (numberOfCardsUp === 1){
     firstCardUp = this;
   }
@@ -102,8 +102,8 @@ const turnCardDown = (card) => {
 }
  // Eseményfigyelők
 const addEventListenersToCards = () => {
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => card.addEventListener('click',turnCardUp))
+  const cards = document.querySelectorAll('.card')
+  cards.forEach(card => card.addEventListener('click',turnCardUp)),
   cards.forEach(card => card.addEventListener('click',startGame))
 }
 
