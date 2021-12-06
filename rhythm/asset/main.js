@@ -1,4 +1,5 @@
 import measureObject from "./measure.js";
+import {bpm} from "./play.js"
 
 let notePlaces = document.querySelectorAll('.note-place');
 let notes = Array.from(document.querySelectorAll('.note')) ;

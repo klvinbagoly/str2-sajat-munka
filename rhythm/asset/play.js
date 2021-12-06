@@ -23,7 +23,8 @@ const playNote = () => {
   // notePlaces.forEach(note => note.style.boxShadow = 'none')
   // notePlaces[currentNote].style.boxShadow = '0 0 2px grey ';
 
-  const note = notes[currentNote];
+  let note = notes[currentNote];
+  if (!note) note = notes[0]
 
   if (note.classList.contains('note-active')) {
     notes.forEach(note => note.style.backgroundColor = 'black');
@@ -81,4 +82,4 @@ bpmInput.addEventListener('change', () => {
   bpmInput.value = bpm;
 })
 
-export {startPlay} 
+export {bpm} 
