@@ -1,0 +1,33 @@
+@use '../variables/colors'as *;
+@use 'sass:map';
+
+
+@mixin define-color ($name, $value) {
+  @if type-of($value: $value)==map {
+    .bg--#{$name} {
+      background-image: url(../../img/bg-pattern.png), linear-gradient(85deg, map.get($value, from), map.get($value, to));
+    }
+  }
+
+  @else {
+    .bg--#{"" + $name} {
+      background-color: $value;
+    }
+
+    .text--#{"" + $name} {
+      color: $value;
+    }
+  }
+}
+
+@mixin hover-color($name, $value) {
+  @if type-of($value: $value)==color {
+    .bg-hover--#{"" + $name}:hover {
+      background-color: $value;
+    }
+
+    .text-hover--#{"" + $name}:hover {
+      color: $value;
+    }
+  }
+}

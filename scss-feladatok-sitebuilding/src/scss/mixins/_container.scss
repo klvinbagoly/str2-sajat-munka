@@ -1,0 +1,17 @@
+@use '../variables/config'as *;
+@use '../functions/get-map-value'as *;
+@use 'sass:map';
+
+@mixin define-container {
+  $classname: get-map-value($config, container, classname);
+  $width: get-map-value($config, container, width);
+
+  .#{$classname} {
+    max-width: $width;
+    padding: 0 25px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+}

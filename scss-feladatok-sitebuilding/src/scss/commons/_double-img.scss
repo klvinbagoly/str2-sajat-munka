@@ -1,0 +1,33 @@
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 100px;
+
+  &--outside {
+    background-image: url(../../img/phone.png);
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 300px;
+
+    @media only screen and (min-width: 992px) {
+      width: 250px;
+      height: 500px;
+    }
+  }
+
+  &--inside {
+    background-image: url(../../img/demo-screen-1.jpg);
+    background-size: 100%;
+    width: 130px;
+    height: 231px;
+
+    @media only screen and (min-width: 992px) {
+      width: 218px;
+      height: 388px;
+    }
+  }
+}

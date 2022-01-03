@@ -1,0 +1,29 @@
+@use '../variables/colors';
+@use '../variables/fonts';
+@use 'sass:map';
+
+$white:map.get(colors.$colors, white);
+$primary:map.get(colors.$colors, primary);
+$black:map.get(colors.$colors, black);
+
+$small: map.get(fonts.$font-sizes, small);
+
+.btn--custom {
+  border: 1px solid $white;
+  border-radius: 1000px;
+  font-size: $small;
+  color: $white;
+  background-color: transparent;
+  padding: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s, color 0.6s;
+
+  &:hover {
+    background-color: $primary;
+    border-color: $primary;
+    color: $black;
+
+  }
+
+}

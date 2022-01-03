@@ -1,0 +1,9 @@
+@use '../variables/colors'as *;
+@use '../mixins/colors'as *;
+@use 'sass:list';
+
+@each $name,
+$value in $colors {
+  @include define-color($name, $value);
+  @include hover-color($name, $value);
+}

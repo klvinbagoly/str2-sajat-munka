@@ -1,0 +1,18 @@
+@use 'commons/colors';
+@use 'commons/navbar';
+@use 'commons/header';
+@use 'commons/buttons';
+@use 'commons/double-img';
+@use 'mixins/fonts';
+@use 'mixins/container';
+@use 'mixins/columns';
+
+@include fonts.define-fonts;
+@include fonts.define-font-sizes;
+@include container.define-container;
+@include columns.define-columns;
+@include columns.default-column;
+
+body {
+  margin: 0
+}

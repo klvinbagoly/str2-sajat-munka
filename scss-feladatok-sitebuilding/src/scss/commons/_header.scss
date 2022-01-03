@@ -1,0 +1,13 @@
+.header {
+  height: 100vh;
+  box-sizing: border-box;
+  padding-top: 120px;
+
+  div {
+    text-align: center;
+
+    @media only screen and (min-width: 992px) {
+      text-align: left;
+    }
+  }
+}

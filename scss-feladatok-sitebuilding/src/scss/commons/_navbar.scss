@@ -1,0 +1,93 @@
+@use '../variables/colors';
+@use 'sass:map';
+
+.nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  left: 0px;
+  right: 0px;
+  padding: 10px 25px;
+  background-color: transparent;
+
+  @media only screen and (max-width: 760px) {
+    background-color: map.get(colors.$colors, white);
+  }
+
+  a {
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+
+  &--menu {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    @media only screen and (min-width: 760px) {
+      flex-direction: row;
+    }
+  }
+
+  &--label {
+    display: flex;
+    border: 2px solid map.get($map:colors.$colors, $key: secondary);
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    float: right;
+
+    @media only screen and (min-width: 760px) {
+      display: none;
+    }
+  }
+
+  &--hamburger {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--span {
+    display: inline-block;
+    height: 3px;
+    width: 30px;
+    background-color: map.get($map: colors.$colors, $key: black);
+    margin: 3px;
+  }
+
+  &--checkbox {
+    display: none;
+
+    &:checked+.nav--list {
+      display: flex;
+      flex-direction: column;
+
+      @media only screen and (min-width: 760px) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  &--list {
+    display: none;
+    list-style: none;
+    font-size: 10px;
+    position: absolute;
+    top: 51px;
+    left: -50px;
+    background-color: white;
+
+    @media only screen and (min-width: 760px) {
+      display: flex;
+      position: static;
+      background-color: inherit;
+    }
+  }
+
+  &--item {
+    font-size: 0.5rem;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}

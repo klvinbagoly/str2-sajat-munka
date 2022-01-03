@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran&family=Lato:wght@300&family=Mulish:wght@300&display=swap');
+
+
+$fonts: (catamaran: ('Catamaran', Arial, Helvetica, sans-serif),
+  lato: ('Lato', Arial, Helvetica, sans-serif),
+  muli: ('Mulish', Arial, Helvetica, sans-serif));
+
+$font-sizes: (small: 12px,
+  medium: 20px,
+  large: 30px,
+  extra-large: 40px)

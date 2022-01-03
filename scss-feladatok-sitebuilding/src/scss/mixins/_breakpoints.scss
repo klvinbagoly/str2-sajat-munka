@@ -1,0 +1,12 @@
+@use '../variables/config'as *;
+@use '../functions/get-map-value'as *;
+@use 'sass:map';
+
+@mixin define-breakpoints ($breakpoint) {
+  $breakpoints: get-map-value($config, grid, breakpoint);
+
+  @media only screen and (min-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+
+}

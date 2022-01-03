@@ -1,0 +1,43 @@
+// col-mob-1 .... col-desk-12;
+
+@use '../variables/config'as *;
+@use '../functions/get-column-width'as *;
+@use '../functions/get-map-value'as *;
+@use '../mixins/breakpoints'as *;
+@use 'sass:map';
+
+@mixin define-columns {
+  $postfixes: get-map-value($config, columns, postfixes);
+  $size: get-map-value($config, grid, size);
+  $classname: get-map-value($config, columns, classname);
+  $paddings: get-map-value($config, columns, paddings);
+
+  @each $key,
+  $value in $postfixes {
+    @for $i from 1 through $size {
+      @if $value==mob {
+        .#{$classname}--#{$value}-#{$i} {
+          width: get-column-width($size, $i);
+          padding: map.get($paddings, $key);
+        }
+      }
+
+      @else {
+        @include define-breakpoints($key) {
+          .#{$classname}--#{$value}-#{$i} {
+            width: get-column-width($size, $i);
+            padding: map.get($paddings, $key);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin default-column {
+  $classname: get-map-value($config, columns, classname);
+
+  [class^="#{$classname}"] {
+    box-sizing: border-box;
+  }
+}

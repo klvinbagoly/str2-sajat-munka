@@ -1,0 +1,12 @@
+$config: (grid: (size: 12,
+    breakpoint: (tablet: 560px,
+      desktop: 992px)),
+  container: (classname: contaigner,
+    width: 1200px),
+  columns: (classname: col,
+    postfixes: (default: mob,
+      tablet: tab,
+      desktop: desk),
+    paddings: (default: 5px,
+      tablet: 7px,
+      desktop: 9px)))

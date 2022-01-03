@@ -1,0 +1,11 @@
+@use 'sass:map';
+
+@function get-map-value ($map, $keys...) {
+  $value: $map;
+
+  @each $key in $keys {
+    $value: map.get($value, $key)
+  }
+
+  @return $value;
+}

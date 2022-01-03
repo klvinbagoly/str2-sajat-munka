@@ -1,0 +1,22 @@
+@use '../variables/fonts';
+
+@mixin define-fonts {
+
+  @each $name,
+  $value in fonts.$fonts {
+
+    .#{$name} {
+      font-family: $value;
+    }
+  }
+}
+
+@mixin define-font-sizes {
+
+  @each $name,
+  $value in fonts.$font-sizes {
+    .#{$name} {
+      font-size: $value;
+    }
+  }
+}

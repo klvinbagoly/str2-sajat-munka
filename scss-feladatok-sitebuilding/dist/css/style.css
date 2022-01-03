@@ -1,0 +1,518 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran&family=Lato:wght@300&family=Mulish:wght@300&display=swap");
+.bg--white {
+  background-color: #fff;
+}
+
+.text--white {
+  color: #fff;
+}
+
+.bg-hover--white:hover {
+  background-color: #fff;
+}
+
+.text-hover--white:hover {
+  color: #fff;
+}
+
+.bg--black {
+  background-color: #222222;
+}
+
+.text--black {
+  color: #222222;
+}
+
+.bg-hover--black:hover {
+  background-color: #222222;
+}
+
+.text-hover--black:hover {
+  color: #222222;
+}
+
+.bg--primary {
+  background-color: #fdcb50;
+}
+
+.text--primary {
+  color: #fdcb50;
+}
+
+.bg-hover--primary:hover {
+  background-color: #fdcb50;
+}
+
+.text-hover--primary:hover {
+  color: #fdcb50;
+}
+
+.bg--secondary {
+  background-color: #e3e3e3;
+}
+
+.text--secondary {
+  color: #e3e3e3;
+}
+
+.bg-hover--secondary:hover {
+  background-color: #e3e3e3;
+}
+
+.text-hover--secondary:hover {
+  color: #e3e3e3;
+}
+
+.bg--twitter {
+  background-color: #1da1f3;
+}
+
+.text--twitter {
+  color: #1da1f3;
+}
+
+.bg-hover--twitter:hover {
+  background-color: #1da1f3;
+}
+
+.text-hover--twitter:hover {
+  color: #1da1f3;
+}
+
+.bg--facebook {
+  background-color: #3b5999;
+}
+
+.text--facebook {
+  color: #3b5999;
+}
+
+.bg-hover--facebook:hover {
+  background-color: #3b5999;
+}
+
+.text-hover--facebook:hover {
+  color: #3b5999;
+}
+
+.bg--red {
+  background-color: #dd4c39;
+}
+
+.text--red {
+  color: #dd4c39;
+}
+
+.bg-hover--red:hover {
+  background-color: #dd4c39;
+}
+
+.text-hover--red:hover {
+  color: #dd4c39;
+}
+
+.bg--gradient {
+  background-image: url(../../img/bg-pattern.png), linear-gradient(85deg, #d92632, #7d4397);
+}
+
+.nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  left: 0px;
+  right: 0px;
+  padding: 10px 25px;
+  background-color: transparent;
+}
+@media only screen and (max-width: 760px) {
+  .nav {
+    background-color: #fff;
+  }
+}
+.nav a {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.nav--menu {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+@media only screen and (min-width: 760px) {
+  .nav--menu {
+    flex-direction: row;
+  }
+}
+.nav--label {
+  display: flex;
+  border: 2px solid #e3e3e3;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  float: right;
+}
+@media only screen and (min-width: 760px) {
+  .nav--label {
+    display: none;
+  }
+}
+.nav--hamburger {
+  display: flex;
+  flex-direction: column;
+}
+.nav--span {
+  display: inline-block;
+  height: 3px;
+  width: 30px;
+  background-color: #222222;
+  margin: 3px;
+}
+.nav--checkbox {
+  display: none;
+}
+.nav--checkbox:checked + .nav--list {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 760px) {
+  .nav--checkbox:checked + .nav--list {
+    flex-direction: row;
+  }
+}
+.nav--list {
+  display: none;
+  list-style: none;
+  font-size: 10px;
+  position: absolute;
+  top: 51px;
+  left: -50px;
+  background-color: white;
+}
+@media only screen and (min-width: 760px) {
+  .nav--list {
+    display: flex;
+    position: static;
+    background-color: inherit;
+  }
+}
+.nav--item {
+  font-size: 0.5rem;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.header {
+  height: 100vh;
+  box-sizing: border-box;
+  padding-top: 120px;
+}
+.header div {
+  text-align: center;
+}
+@media only screen and (min-width: 992px) {
+  .header div {
+    text-align: left;
+  }
+}
+
+.btn--custom {
+  border: 1px solid #fff;
+  border-radius: 1000px;
+  font-size: 12px;
+  color: #fff;
+  background-color: transparent;
+  padding: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s, color 0.6s;
+}
+.btn--custom:hover {
+  background-color: #fdcb50;
+  border-color: #fdcb50;
+  color: #222222;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 100px;
+}
+.img--outside {
+  background-image: url(../../img/phone.png);
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 300px;
+}
+@media only screen and (min-width: 992px) {
+  .img--outside {
+    width: 250px;
+    height: 500px;
+  }
+}
+.img--inside {
+  background-image: url(../../img/demo-screen-1.jpg);
+  background-size: 100%;
+  width: 130px;
+  height: 231px;
+}
+@media only screen and (min-width: 992px) {
+  .img--inside {
+    width: 218px;
+    height: 388px;
+  }
+}
+
+.catamaran {
+  font-family: "Catamaran", Arial, Helvetica, sans-serif;
+}
+
+.lato {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+
+.muli {
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+.small {
+  font-size: 12px;
+}
+
+.medium {
+  font-size: 20px;
+}
+
+.large {
+  font-size: 30px;
+}
+
+.extra-large {
+  font-size: 40px;
+}
+
+.contaigner {
+  max-width: 1200px;
+  padding: 0 25px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col--mob-1 {
+  width: 8.3333333333%;
+  padding: 5px;
+}
+
+.col--mob-2 {
+  width: 16.6666666667%;
+  padding: 5px;
+}
+
+.col--mob-3 {
+  width: 25%;
+  padding: 5px;
+}
+
+.col--mob-4 {
+  width: 33.3333333333%;
+  padding: 5px;
+}
+
+.col--mob-5 {
+  width: 41.6666666667%;
+  padding: 5px;
+}
+
+.col--mob-6 {
+  width: 50%;
+  padding: 5px;
+}
+
+.col--mob-7 {
+  width: 58.3333333333%;
+  padding: 5px;
+}
+
+.col--mob-8 {
+  width: 66.6666666667%;
+  padding: 5px;
+}
+
+.col--mob-9 {
+  width: 75%;
+  padding: 5px;
+}
+
+.col--mob-10 {
+  width: 83.3333333333%;
+  padding: 5px;
+}
+
+.col--mob-11 {
+  width: 91.6666666667%;
+  padding: 5px;
+}
+
+.col--mob-12 {
+  width: 100%;
+  padding: 5px;
+}
+
+@media only screen and (min-width: 560px) {
+  .col--tab-1 {
+    width: 8.3333333333%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-2 {
+    width: 16.6666666667%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-3 {
+    width: 25%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-4 {
+    width: 33.3333333333%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-5 {
+    width: 41.6666666667%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-6 {
+    width: 50%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-7 {
+    width: 58.3333333333%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-8 {
+    width: 66.6666666667%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-9 {
+    width: 75%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-10 {
+    width: 83.3333333333%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-11 {
+    width: 91.6666666667%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .col--tab-12 {
+    width: 100%;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-1 {
+    width: 8.3333333333%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-2 {
+    width: 16.6666666667%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-3 {
+    width: 25%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-4 {
+    width: 33.3333333333%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-5 {
+    width: 41.6666666667%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-6 {
+    width: 50%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-7 {
+    width: 58.3333333333%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-8 {
+    width: 66.6666666667%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-9 {
+    width: 75%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-10 {
+    width: 83.3333333333%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-11 {
+    width: 91.6666666667%;
+    padding: 9px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col--desk-12 {
+    width: 100%;
+    padding: 9px;
+  }
+}
+[class^=col] {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
