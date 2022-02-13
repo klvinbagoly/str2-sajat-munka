@@ -31,3 +31,9 @@
     }
   }
 }
+
+.border-bottom {
+  border-bottom: 2px solid map.get($colors, secondary);
+  width: 100px;
+  margin: 4rem;
+}

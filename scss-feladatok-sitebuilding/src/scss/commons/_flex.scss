@@ -1,0 +1,27 @@
+@mixin flex ($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  text-align: center;
+}
+
+.flex {
+  &--column {
+    @include flex(column, center, center);
+
+    &-start {
+      @include flex(column, center, start)
+    }
+  }
+
+  &--row {
+    @include flex(row, center, center);
+
+    &-responsive {
+      @media only screen and (max-width: 560px) {
+        flex-direction: column;
+      }
+    }
+  }
+}

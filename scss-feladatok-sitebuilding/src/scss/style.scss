@@ -3,9 +3,12 @@
 @use 'commons/header';
 @use 'commons/buttons';
 @use 'commons/double-img';
+@use 'commons/flex';
 @use 'mixins/fonts';
 @use 'mixins/container';
 @use 'mixins/columns';
+@use 'variables/colors'as _colors;
+@use 'sass:map';
 
 @include fonts.define-fonts;
 @include fonts.define-font-sizes;
@@ -15,4 +18,84 @@
 
 body {
   margin: 0
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-weight: lighter;
+}
+
+
+section {
+  padding: 80px 0;
+}
+
+.icons {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 80px;
+}
+
+.bg-cta {
+  background-image: url('../../img/bg-cta.jpg');
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  background-color: map.get(_colors.$colors, filter);
+  position: relative;
+
+  .bg--filter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 80px;
+  }
+}
+
+.social {
+  border-radius: 60px;
+  color: white;
+  height: 60px;
+  width: 60px;
+  margin: 5px;
+  opacity: 0.9;
+  @extend .flex--row;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  & a:visited {
+    color: inherit;
+  }
+
+}
+
+footer {
+  padding: 10px;
+
+  p {
+    margin: 5px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:visited {
+      color: inherit;
+    }
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
 }

@@ -9,6 +9,7 @@
   right: 0px;
   padding: 10px 25px;
   background-color: transparent;
+  z-index: 1;
 
   @media only screen and (max-width: 760px) {
     background-color: map.get(colors.$colors, white);
@@ -17,6 +18,12 @@
   a {
     font-size: 1.5rem;
     text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+
   }
 
   &--menu {
