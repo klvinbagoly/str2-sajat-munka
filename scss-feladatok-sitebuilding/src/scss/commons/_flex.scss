@@ -19,6 +19,8 @@
     @include flex(row, center, center);
 
     &-responsive {
+      @include flex(row, center, center);
+
       @media only screen and (max-width: 560px) {
         flex-direction: column;
       }
