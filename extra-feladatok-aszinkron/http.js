@@ -13,9 +13,12 @@ const startRequest = (method, path, i = 3, callback) => {
       }, 5000) 
     }
   }
-  req.addEventListener('load', callback)
+  // req.addEventListener('load', callback)
   req.addEventListener('load', () => {
-    mergeUsers(req.responseText);
+    if (req.readyState === 4 && req.status === 200){
+      mergeUsers(req.responseText);
+      callback()
+    }
   })
   req.send()
 }
@@ -26,7 +29,7 @@ const mergeUsers = (json) => {
   // console.log(users);
 }
 
-const clg = () => console.log(users)
+const clg = () =>{}// console.log(users)
 
 const req1 = (callback = req2) => startRequest('GET', './users1.json', 3, callback)
 const req2 = (callback = req3) => startRequest('GET', './users2.json', 3, callback)

@@ -31,12 +31,12 @@ console.table(data)
 
 const iterations = [1000, 100, 10, 1]
 
-const req1 = (times) => startRequest('GET', './users1.json', 3, req2(times))
-const req2 = (times) => startRequest('GET', './users2.json', 3, req3(times))
-const req3 = (times) => startRequest('GET', './users3.json', 3, restart(times))
+const req1 = (times) => startRequest('GET', './users1.json', 3, () => req2(times))
+const req2 = (times) => startRequest('GET', './users2.json', 3, () => req3(times))
+const req3 = (times) => startRequest('GET', './users3.json', 3, () => restart(times))
 
 const restart = (times) => {
-  if (times === iterations[iterations.length - 1]){
+  if (times >= iterations[iterations.length - 1]){
     iterations.pop()
     data[times]['Callback'] = performance.now() - startArray[times]
     if(times === 1000) console.table(data)
@@ -55,6 +55,3 @@ req1(1)
 startArray[1000] = performance.now()
 req1(1)
 
-
-// Uncaught RangeError: Maximum call stack size exceeded
-// at req3 (performance.js:36:25)
