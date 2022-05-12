@@ -1,0 +1,15 @@
+{
+  "users": [{
+      "name": "Aharon Paye",
+      "age": 13
+    },
+    {
+      "name": "Clevey Dymocke",
+      "age": 28
+    },
+    {
+      "name": "Tierney Hacking",
+      "age": 70
+    }
+  ]
+}

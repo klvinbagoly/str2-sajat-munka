@@ -29,8 +29,10 @@ figure.main {
 }
 
 #works figure, article, section {
-    display: inline-block;
+    display: block;
 } 
+#works figure {float:left}
+article::after {content:'';clear:both;display:block}
 section#gallery img {
     box-shadow: 5px 5px 20px #bb2030;
 }

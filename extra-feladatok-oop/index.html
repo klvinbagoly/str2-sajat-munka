@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 class="message">
+
+  </h1>
+
+
+  <script type="module">
+    import User from "./first.js"
+    import User2 from "./second.js"
+    import Messenger from "./third.js"
+    User.read(1)
+    window.User = User
+    window.user = new User2('http://localhost:3000/users')
+    window.messenger = new Messenger('http://localhost:3000/users')
+    user.read(1)
+
+  </script>
+</body>
+
+</html>
