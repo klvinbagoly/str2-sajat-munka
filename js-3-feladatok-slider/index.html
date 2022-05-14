@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slider</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+    type='text/css'>
 </head>
 
 <body>
@@ -16,12 +18,22 @@
   <main>
     <div class="container">
       <div class="img-container">
+        <div class="img-previous"></div>
+        <div class="img-current"></div>
+        <div class="img-next"></div>
       </div>
-      <div class="controls"></div>
+      <div class="controls">
+        <div class="controls-left">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </div>
+        <div class="controls-right">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+      </div>
       <div class="counter"></div>
       <div class="caption"></div>
-      <div class="pager"></div>
     </div>
+    <div class="pager"></div>
   </main>
   <script src="./js/main.js" type="module"></script>
 </body>
