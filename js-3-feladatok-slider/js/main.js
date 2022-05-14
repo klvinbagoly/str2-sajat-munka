@@ -203,3 +203,14 @@ const paging = (index) => {
 }
 
 pagers.forEach((pager, i) => pager.addEventListener('click', () => paging(i)))
+
+
+// Keyboard events.
+document.body.addEventListener('keydown', (event) => {
+  if (event.code === "ArrowLeft") {
+    moveToLeft()
+  }
+  if (event.code === "ArrowRight") {
+    moveToRight()
+  }
+})
