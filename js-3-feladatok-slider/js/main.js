@@ -23,12 +23,12 @@ let previous = imageData.length - 1
 let animationTime = 2000
 let delayTime = 8000
 
-let pictureInterval
-let animationInterval
+// Interval IDs and click count.
+let IDs = []
 let clicked = 0
 
 const changePictures = (delay) => {
-  console.log("Picture interval ", pictureInterval);
+  console.log("intervals ", IDs);
 
   // Update background images and animation time.
   imgPrevious.style.backgroundImage = `url("${imageData[previous].url}")`
@@ -48,7 +48,7 @@ const changePictures = (delay) => {
 }
 
 const animateImages = () => {
-  console.log("Animation interval ", animationInterval);
+  console.log("intervals ", IDs);
   
   // Start animation.
   images.forEach(img => {
@@ -97,8 +97,8 @@ const moveToLeft = () => {
   if (next < 0) next += imageData.length;
 
   // Stop previous intervals.
-  clearInterval(pictureInterval)
-  clearInterval(animationInterval)
+  IDs.forEach(id => clearInterval(id))
+  IDs = []
 
   setTimeout(() => {
     // Stop animation and start new intervals.
@@ -121,8 +121,8 @@ const moveToRight = () => {
   setTimeout(() => clicked--, delayTime)
 
   // Stop previous intervals.
-  clearInterval(pictureInterval)
-  clearInterval(animationInterval)
+  IDs.forEach(id => clearInterval(id))
+  IDs = []
 
   // Start animation and new intervals.
   animateImages()
@@ -151,12 +151,11 @@ const startSlider = () => {
      return
    }
    // Start new intervals.
-  pictureInterval = setInterval(changePictures, delayTime)
+  IDs.push(setInterval(changePictures, delayTime))
 
   setTimeout(() => {
     animateImages()
-    animationInterval = setInterval(animateImages, delayTime)
-
+    IDs.push(setInterval(animateImages, delayTime))
   }, delayTime - animationTime)
 }
 
@@ -176,8 +175,9 @@ const paging = (index) => {
   setTimeout(() => clicked--, delayTime)
 
   // Stop previous intervals.
-  clearInterval(pictureInterval)
-  clearInterval(animationInterval)
+  IDs.forEach(id => clearInterval(id))
+  IDs = []
+
 
   // Set state and new picture.
   next = index
