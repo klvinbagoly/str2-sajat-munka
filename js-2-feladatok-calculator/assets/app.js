@@ -1,6 +1,7 @@
 const resultsArea = document.querySelector('.results');
 
 const writeValue = function(){
+  if (resultsArea.textContent.includes('t')) resultsArea.textContent = ''
   resultsArea.textContent = resultsArea.textContent + this.textContent
 }
 
@@ -26,8 +27,11 @@ const calculate = (str = '0+0') => {
   str.match(/(?:-?\d+(?:\.\d+)?)(?:[×÷]-?\d+(?:\.\d+)?)*/g)
   .forEach(op => str = str.replace(op, multiplyAndDivide(op)));
 
-  if (str.includes('Infinity')){
+  // 0 / 0 is NaN
+  if (str.includes('Infinity') || str.includes('NaN')){
     resultsArea.textContent = "Don't divide by 0!"
+  } else if (str.includes('e')){
+    resultsArea.textContent = `Error: too ${str.includes('e-') ? 'small' : 'big'} number!`
   } else {
     str = addAndSubtract(str);
     resultsArea.textContent = str;
