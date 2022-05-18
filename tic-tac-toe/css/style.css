@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: wheat;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  margin: 0;
+  text-shadow: 2px -2px burlywood;
+}
+
+header {
+  padding: 2em;
+  background-color: #53e4b3;
+  border-top: 1px double brown;
+  border-bottom: 1px double brown;
+}
+
+h1 {
+  text-align: center;
+}
+
+.game {
+  margin: 5em auto;
+  height: 50vmin;
+  width: 50vmin;
+  outline: 5px outset brown;
+  outline-offset: 5px;
+  background-color: white;
+  box-shadow: inset -5px 5px 5px 2px burlywood;
+}
+
+.game-row {
+  height: 33.3%;
+  display: flex;
+}
+
+.game-cell {
+  width: 33.3%;
+  height: 100%;
+  border: 4px inset lightslategray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-cell:hover {
+  cursor: crosshair;
+  background-color: lightgrey;
+}
+
+.game-cell img {
+  height: 0%;
+ transition: all 0.5s cubic-bezier(.71,0,.32,1.6);
+}
+
+.message {
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+}
+
+.new-game {
+  text-align: center;
+  margin: 10px auto;
+}
+
+button.new-game {
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: large;
+  padding: 5px;
+  background-image: linear-gradient(to right, lightgreen, green);
+}
+
+@media screen and (max-width: 440px){
+  .game {
+    height: 80vmin;
+    width: 80vmin;
+  }
+}
