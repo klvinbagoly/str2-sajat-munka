@@ -52,8 +52,8 @@ html, body {
 } 
 
 .search__input:focus {
-    border-width: 3px;
-    border-color: rgb(128, 189, 255);
+    outline-width: 3px;
+    outline-color: rgb(128, 189, 255);
 }
 
 .search__btn {
@@ -196,11 +196,19 @@ hr  {
 
 @media only screen and (max-width:700px){
     .nav__ul li {
-        visibility: hidden;
+        font-size: 0;
     }
 
     .nav__ul i {
-        visibility: visible;
+        font-size: initial;
+    }
+
+    .nav__header {
+        display: none;
+    }
+
+    .nav__item .fa-angle-right {
+        display: none;
     }
 
     #menu__icon {
@@ -208,5 +216,18 @@ hr  {
     }
     .main__cards {
         grid-template-columns: auto;
+    }
+
+    .header__search form {
+        width: 30%;
+        display: flex;
+    }
+
+    .search__input {
+        width: 30vw;
+    }
+
+    .header__user {
+        display: none;
     }
 }
