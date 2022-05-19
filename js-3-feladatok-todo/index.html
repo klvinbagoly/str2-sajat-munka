@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+    type='text/css'>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>To-do</title>
+</head>
+
+<body>
+  <header>
+    <h1>To-do list</h1>
+  </header>
+  <div class="container">
+    <div class="date"></div>
+    <form onsubmit="return false">
+      <input type="text" class="main-input" placeholder="Take the garbage out" autocomplete="off" autofocus>
+      <button type="button" class="main-button" title="Add to list">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+    </form>
+    <div class="pending">
+      You have <span class="amount"></span> pending items.
+      <div class="pending__list">
+        <!-- <div class="pending__list-item">
+          <div>
+            <input type="checkbox" name="valami" id="valami">
+            valami
+          </div>
+          <div class="hidden-button">
+            <button><i class="fa fa-trash"></i></button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="completed">
+      Completed tasks: <span class="percent"></span>
+      <div class="completed__list">
+        <!-- <div class="completed__list-item">
+          <input type="checkbox" name="valami" id="valami" checked readonly>
+          valami
+        </div> -->
+      </div>
+    </div>
+    <div class="chill">
+      <img src="./assets/img/images.jpg" alt="Tropical island">
+      <div class="chill-text">Time to chill! You have no todos.</div>
+    </div>
+    <footer>
+      <button class="footer-btn show-btn">Show completed</button>
+      <button class="footer-btn clear-btn" title="Delete pending items">Clear all</button>
+    </footer>
+  </div>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

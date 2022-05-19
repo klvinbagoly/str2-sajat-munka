@@ -1,0 +1,220 @@
+html, body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  color:darkslategray;
+}
+
+.container {
+  width: 80vw;
+  max-width: 600px;
+  min-height: 70vh;
+  border: 5px double brown;
+  border-radius: 20px;
+  background-color:azure;
+  box-shadow: 2px 2px 2px gray, inset 0 0 2px gray;
+  padding: 20px;
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date {
+  align-self: flex-start;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.container form {
+  margin: 20px 0 40px 0;
+}
+
+[class^="main-"] {
+  line-height: 1.6rem;
+  font-size: 1.2rem;
+  border-radius: 4px;
+}
+
+.main-input {
+  border: 1px solid gray;
+  padding: 2px 10px;
+  font-weight: lighter;
+}
+
+.main-button {
+  border: 2px solid green;
+  background-color:palegreen;
+  width: 2em;
+  cursor: pointer;
+}
+
+.main-button:hover {
+  background-color: green;
+  color: palegreen;
+}
+
+.main-input:hover {
+  background-color: lightgray;
+}
+
+.main-input:focus {
+  background-color: white;
+  outline: none;
+}
+
+@media screen and (max-width: 400px) {
+  .main-input {
+    width: 58vw;
+  }
+}
+
+.pending, .completed {
+  min-width: 80%;
+  text-align: center;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+[class$="__list-item"] {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 5px;
+  background-color: lightgray;
+  padding: 5px 5px 5px 10px;
+  margin: 10px 0;
+}
+
+.slide-in {
+  animation: slide-in 0.5s ease-out forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(120%);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.slide-out {
+  animation: slide-out 0.5s ease-in forwards;
+}
+
+@keyframes slide-out {
+  from {
+    transform: none;
+  }
+
+  to {
+    transform: translateX(-120%);
+  }
+}
+
+[class$="__list-item"] input {
+  width: 0;
+  margin-right: 25px;
+}
+
+[class$="__list-item"] input::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  height: 20px;
+  width: 20px;
+  border: 1px solid darkgray;
+  border-radius: 2px;
+  background-color:bisque;
+  cursor: pointer;
+}
+
+.pending__list-item input:hover::after {
+  background-color: white;
+  content: "✔️";
+  opacity: 0.3;
+}
+
+[class$="__list-item"] input:checked::after {
+  background-color: gainsboro;
+  content: "✔️";
+}
+
+.hidden-button button {
+  position: relative;
+  left: 120%;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  transition: left 0.2s ease-in;
+  cursor: pointer;
+}
+
+.hidden-button button:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.hidden-button:hover button {
+  left:0;
+}
+
+.completed__list-item {
+  background-color:whitesmoke;
+  text-decoration: line-through;
+  justify-content: start;
+}
+
+.completed__list-item input::after {
+  cursor: default;
+}
+
+.chill {
+  margin-top: 20px;
+}
+
+.chill-text {
+  margin-top: 20px;
+  margin-bottom: 100px;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.footer-btn {
+  text-transform: capitalize;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+.footer-btn:hover {
+  box-shadow: 1px 1px 2px 2px lightgray;
+  border-radius: 2px;
+}
+
+.clear-btn:hover {
+  box-shadow: 1px 1px 2px 2px red;
+}
+
+.completed, .chill {
+  display: none;
+}
