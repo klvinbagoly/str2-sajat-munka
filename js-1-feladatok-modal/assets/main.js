@@ -1,7 +1,10 @@
 // <ℹ️> A kommentelt részek csak a kód korábbi verzióját dokumentálják. </ℹ️>
-function openModal (){
+function openModal(event) {
     const modal = document.querySelector('.modal');
-    modal.setAttribute('class','modal-visible');
+    modal.setAttribute('class', 'modal-visible');
+
+    // modal.focus()
+    document.querySelector('.modal__button--okay').focus()
     // setTimeout(() =>
     // document.body.addEventListener('click', closeModal), 1000
     // )
@@ -27,9 +30,9 @@ function openModal (){
 //     background.addEventListener('click', closeModal)
 // }   
 
-function closeModal (){
+function closeModal() {
     const modal = document.querySelector('.modal-visible');
-    modal.setAttribute('class','modal');
+    modal.setAttribute('class', 'modal');
     //document.body.setAttribute('style', 'background-color:  rgba(55, 55, 55, 0.2)');
     // document.body.removeEventListener('click', closeModal); HELYETT:
     const overlay = document.querySelector('.overlay');
