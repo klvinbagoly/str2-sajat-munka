@@ -3,10 +3,11 @@
 body {
   display: flex;
   margin: 0;
+  min-height: 100vh;
 }
 
 :root {
-  --sidebar-bg-color:rgb(48, 48, 56);
+  --sidebar-bg-color: rgb(48, 48, 56);
   --sidebar-main-color: #ddd;
 }
 
@@ -34,7 +35,7 @@ main {
 
 .main__img {
   padding: 1% 25%;
-  
+
 }
 
 .main__capture {
@@ -43,7 +44,8 @@ main {
 }
 
 .sidebar {
-  width: 300px;
+  width: 25%;
+  min-width: 300px;
   background-color: var(--sidebar-bg-color);
   color: var(--sidebar-main-color);
   font-size: 0.5rem;
@@ -86,8 +88,13 @@ main {
 }
 
 @keyframes slidebar {
-  0% {transform: translate(500px);}
-  100% {transform: translate(0);}
+  0% {
+    transform: translate(500px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
 }
 
 .sidebar__form {
@@ -112,13 +119,16 @@ main {
   padding: 3px;
 }
 
-@media only screen and (max-width:800px){
+@media only screen and (max-width:800px) {
   body {
-    flex-direction:column-reverse;
+    flex-direction: column-reverse;
   }
-  main, .sidebar {
+
+  main,
+  .sidebar {
     width: 100%;
   }
+
   .sidebar__form {
     position: absolute;
     top: 30px;

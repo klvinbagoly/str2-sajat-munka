@@ -2,7 +2,7 @@ const getLivingCharachters = async () => {
   const response = await fetch('./json/got.json');
   const data = await response.json();
   const livingCharacters = data.filter(char => !(char.dead === true));
-  return livingCharacters.slice(0,48).sort((a,b)=> Intl.Collator('en').compare(a.name, b.name))
+  return livingCharacters.slice(0, 48).sort((a, b) => Intl.Collator('en').compare(a.name, b.name))
 }
 
 // Main part
@@ -46,6 +46,19 @@ const showHouse = (char, sidebar) => {
   house.setAttribute('alt', char.house);
   sidebar.appendChild(house);
 }
+
+const showNoHouse = (sidebar) => {
+  const house = document.createElement('i');
+  house.classList.add('sidebar__house', 'fa', 'fa-home');
+  house.style.fontSize = '38px';
+  sidebar.appendChild(house);
+
+  // const no = document.createElement('i');
+  // no.classList.add('sidebar__house', 'fa', 'fa-ban');
+  // no.style.fontSize = '38px';
+  // sidebar.appendChild(no);
+}
+
 const showDescription = (char, sidebar) => {
   const header = document.createElement('h3');
   header.textContent = char.name || 'Character not found.';
@@ -58,11 +71,14 @@ const showDescription = (char, sidebar) => {
 
 const showCharachter = (char = {}) => {
   document.querySelectorAll('.main__figure')
-  .forEach(figure => figure.style.boxShadow = 'none');
+    .forEach(figure => figure.style.boxShadow = 'none');
   const sidebar = document.querySelector('.sidebar__description');
   sidebar.innerHTML = '';
   showPicture(char, sidebar);
-  if (char.house) {showHouse(char, sidebar)};
+  if (char.house) {
+    showHouse(char, sidebar)
+  }
+  else showNoHouse(sidebar);
   showDescription(char, sidebar);
 }
 
@@ -70,9 +86,11 @@ const createEventListeners = async () => {
   const charachters = await getLivingCharachters();
 
   document.querySelectorAll('.main__figure')
-  .forEach(figure => figure.addEventListener('click', function(){showCharachter(charachters
-    .find(char => char.name === this.lastElementChild.textContent));
-      this.style.boxShadow = '2px 2px 2px rgb(87, 87, 87)'}))
+    .forEach(figure => figure.addEventListener('click', function () {
+      showCharachter(charachters
+        .find(char => char.name === this.lastElementChild.textContent));
+      this.style.boxShadow = '2px 2px 2px rgb(87, 87, 87)'
+    }))
 }
 
 // Search
@@ -84,7 +102,7 @@ const searchCharachter = async (ev) => {
   try {
     const newCharachter = charachters.find(char => char.name.match(new RegExp(`^${searchInput}$`, 'i')))
     showCharachter(newCharachter)
-  } catch  {
+  } catch {
     document.querySelector('.sidebar__description').innerHTML = 'Character not found.'
   }
 }
