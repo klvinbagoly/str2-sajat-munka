@@ -2,7 +2,16 @@ const getLivingCharachters = async () => {
   const response = await fetch('./json/got.json');
   const data = await response.json();
   const livingCharacters = data.filter(char => !(char.dead === true));
-  return livingCharacters.slice(0, 48).sort((a, b) => Intl.Collator('en').compare(a.name, b.name))
+  return livingCharacters.slice(0, 48).sort(sortByFamilyName)
+}
+
+const sortByFamilyName = (a, b) => {
+  const familyNameA = a.name.slice(a.name.lastIndexOf(' ') + 1)
+  const familyNameB = b.name.slice(b.name.lastIndexOf(' ') + 1)
+  if (familyNameA === familyNameB) {
+    return Intl.Collator('en').compare(a.name, b.name)
+  }
+  return Intl.Collator('en').compare(familyNameA, familyNameB)
 }
 
 // Main part
